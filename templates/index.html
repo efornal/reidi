@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+{% if show_welcome_message %}
+<div class="jumbotron">
+  <h3>{{ _('welcome_message_title') | safe }}</h3>
+  <p>{{ _('welcome_message') | safe}}</p>
+</div>
+{% endif %}
+
+<div class="list-group">
+   <li class="list-group-item  disabled">
+    <span >{{ _('Office') }}</span>
+    <span style="float: right;">{{ _('Phone') }}</span>
+  </li>
+  {% if offices %}
+  {% for office_name, phones in offices.items %}
+   <a href="{% url 'search_by_office' office=office_name %}"
+      class="list-group-item" style="overflow-y: auto;">
+    <span >{{ office_name|default:'' }}</span>
+    <span style="float: right;">{{ phones }}</span>
+  </a>
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+{% endblock %}
+
