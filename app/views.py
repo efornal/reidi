@@ -2,6 +2,9 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+from django.utils import translation
+import logging
 
 
 def set_language(request, lang='es'):
@@ -13,9 +16,12 @@ def set_language(request, lang='es'):
     return redirect('index')
 
 
-@login_required
 def index(request):
     context={}
-    return render(request, 'index.html', context)
+    return redirect('login')
 
+
+def sign_up(request):
+    context={}
+    return render(request, 'sign_up.html', context)
 

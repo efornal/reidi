@@ -19,36 +19,50 @@
 </div>
 {% endif %}
 
-<div class="bs-docs-section" style="align-content: space-around; text-align: -moz-center;">
+<div class="bs-docs-section" style="align-content: space-around;">
   <br><br><br>
   <div class="row">
     <div class="col-xs-12 col-md-3"></div>
     <div class="col-xs-12 col-md-6">
       <div class="well bs-component">
-        <form class="form-horizontal" action="{% url 'login' %}" method="post">
+
+        <form class="form" action="{% url 'login' %}" method="post">
           {% csrf_token %}
+          
           <fieldset>
-            <legend style="color: #008bb8;">{{ _('home_login')}}</legend>
+            <legend style="color: #008bb8;">Inicio de sesión
+              <a href="#" style="float:right; font-size: 70%; position: relative;top:5px ">
+              Olvidó contraseña?</a>
+            </legend>
+
             <div style="margin-bottom: 25px" class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input type="text" class="form-control" id="inputEmail"
-                     name="username" placeholder="{{ _('user') }}" autofocus>
+              <input type="text" class="form-control" id="inputUsername"
+                     name="username" placeholder="usuario" autofocus><br>
             </div>
+
             <div style="margin-bottom: 25px" class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input type="password" class="form-control" id="inputPassword"
                      name="password" placeholder="{{ _('password') }}">
             </div>
             <div class="form-group">
-              <div class="col-lg-10 col-lg-offset-2 text-left">
-                <button type="button" class="btn btn-link">Crear una cuenta</button>
-              </div>                
               <div class="col-lg-10 col-lg-offset-2" style="text-align: end;">
-
                 <button type="submit" class="btn btn-primary">
-                  <i class="glyphicon glyphicon-log-out"></i> {{ _('log_in') }}</button>
+                  <i class="glyphicon glyphicon-log-out"></i> Iniciar sesión</button>
               </div>
             </div>
+            <div class="form-group">
+              <div class="col-md-12 control pull left">
+                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                  No tengo una cuenta
+                  <a href="{% url 'sign_up' %}" onclick="$('#loginbox').hide(); $('#signupbox').show()">
+                    Solicitar una 
+                  </a>
+                </div>
+              </div>
+            </div>    
+            
           </fieldset>
         </form>
       </div>

@@ -19,30 +19,38 @@
 </div>
 {% endif %}
 
-<div class="bs-docs-section" style="align-content: space-around; text-align: -moz-center;">
+
+<div class="bs-docs-section" style="align-content: space-around;">
   <br><br><br>
   <div class="row">
     <div class="col-xs-12 col-md-3"></div>
     <div class="col-xs-12 col-md-6">
       <div class="well bs-component">
-        <form class="form-horizontal" action="{% url 'login' %}" method="post">
+
+        <form class="form" action="{% url 'login' %}" method="post">
           {% csrf_token %}
           <fieldset>
-            <legend style="color: #008bb8;">{{ _('home_sign_up')}}</legend>
+            <legend style="color: #008bb8;">Solicitud de cuenta</legend>
+
             <div style="margin-bottom: 25px" class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
               <input type="text" class="form-control" id="inputEmail"
-                     name="email" placeholder="{{ _(email') }}" autofocus>
+                     name="email" placeholder="email" autofocus><br>
             </div>
             <div style="margin-bottom: 25px" class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input type="password" class="form-control" id="inputPassword"
                      name="password" placeholder="{{ _('password') }}">
             </div>
+            <small id="emailHelp" class="form-text text-muted">
+              Al solicitar la cuenta, le enviaremos un email de confirmación
+              con los datos referidos a la solicitud.
+            </small>
+
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2" style="text-align: end;">
                 <button type="submit" class="btn btn-primary">
-                  <i class="glyphicon glyphicon-log-out"></i> {{ _('create_account') }}</button>
+                  Solicitar cuenta</button>
               </div>
             </div>
           </fieldset>
