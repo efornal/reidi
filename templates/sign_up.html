@@ -27,7 +27,7 @@
     <div class="col-xs-12 col-md-6">
       <div class="well bs-component">
 
-        <form class="form" action="{% url 'request_account' %}" method="post">
+        <form class="form" action="{% url 'account_create' %}" method="post">
           {% csrf_token %}
           <fieldset>
             <legend style="color: #008bb8;">Solicitud de cuenta</legend>

@@ -3,9 +3,9 @@
 
 {% block content %}
 <div class="jumbotron">
-  <h3>{{ _('logout_message_title') | safe }}</h3>
-  <p>{{ _('logout_message') | safe}}
-    Gracias por efectuar su confirmación. Ahora puede iniciar sesión en su cuenta desde la sección de inicio.
+  <h3>Bienvenido!</h3>
+  <p>
+    Gracias por efectuar su confirmación. Ahora puede iniciar sesión de su cuenta accediendo al siguiente enlace <a href="{% url 'login' %}">Inicio</a>
   </p>
 </div>
 {% endblock %}

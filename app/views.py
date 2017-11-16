@@ -12,7 +12,6 @@ from django.core.mail import send_mail
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import SignupForm
@@ -23,6 +22,8 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
+
+
 
 def set_language(request, lang='es'):
     if 'lang' in request.GET:
@@ -39,7 +40,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def activate(request, uidb64, token):
+def account_activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
@@ -51,16 +52,17 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        return render(request, 'msg_wellcome.html', context)
+        return render(request, 'msg_wellcome.html')
     else:
         logging.error('Error activating {} user with token {}'.format(user, token))
         return redirect('login')
 
 
     
-def sign_up(request):
+def account_sign_up(request):
     context={}
     return render(request, 'sign_up.html', context)
+
 
 def logout_message(request):
     context={}
@@ -95,7 +97,7 @@ def send_activation_email(user, request):
     return email_sent
 
 
-def request_account(request):
+def account_create(request):
     context = {}
 
     if request.method != 'POST':

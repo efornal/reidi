@@ -3,9 +3,11 @@
 
 {% block content %}
 <div class="jumbotron">
-  <h3>Email de confirmación {{ _('logout_message_title') | safe }}</h3>
-  <p>Se envió el mail de confirmación a su cuenta de correo {{ _('logout_message') | safe}}</p>
-  <p>Una vez realizada la confirmación, podrá acceder al siguiente <a href='{% url login %}'>enlace</a> para solicitar el dominio que necesite.</p>
+  <h3>Email de confirmación</h3>
+  <p>Se envió el mail de confirmación a su cuenta de correo</p>
+  <p>Una vez realizada la confirmación, podrá acceder al siguiente
+    <a href="{% url 'login' %}">enlace</a>
+    para solicitar el dominio que necesite.</p>
 </div>
 {% endblock %}
 
