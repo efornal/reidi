@@ -30,6 +30,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# =================================\
+# email configuration server
+EMAIL_HOST='correo.intranet'
+EMAIL_PORT=25
+EMAIL_HOST_PASSWORD=''
+EMAIL_HOST_USER=''
+# email configuration application
+EMAIL_FROM = 'noreply@rectorado.unl.edu.ar'
+EMAIL_SUBJECT = 'Solicitud de cuenta'
+# =================================/
 
 # Application definition
 
