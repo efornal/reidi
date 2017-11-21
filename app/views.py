@@ -58,7 +58,6 @@ def account_activate(request, uidb64, token):
         return redirect('login')
 
 
-    
 def account_sign_up(request):
     context={}
     return render(request, 'sign_up.html', context)
@@ -109,6 +108,7 @@ def account_create(request):
         user = form.save(commit=False)
         user.is_active = False
         user.save()
+        
         if send_activation_email(user, request):
             return render(request, 'msg_email_sent.html')
         else:
