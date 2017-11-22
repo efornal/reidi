@@ -7,7 +7,7 @@ import dns.resolver, dns.exception
 from django.utils.translation import ugettext as _
 from django.conf import settings
 
-
+    
 def validate_email_domain_restriction(value):
     logging.info('Checking email domain in preset domains..')
     valid_domains = []
@@ -49,12 +49,22 @@ def validate_existence_email_domain(value):
     return value
 
 
+
+
 class SignupForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text='Required',
                              validators=[validate_email_domain_restriction,
                                          validate_existence_email_domain])
 
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
+        if email and User.objects.filter(email=email).exclude(username=username).exists():
+            raise forms.ValidationError(_('email_must_be_unique'))
+        return email
+
+    
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')

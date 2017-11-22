@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-22 10:53-0300\n"
+"POT-Creation-Date: 2017-11-22 14:24-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app/forms.py:18
-msgid "email_domain_restriction"
-msgstr ""
-"Your email account does not belong to a valid institutional domain. You must "
-"use an institutional email account. "
-
-#: app/forms.py:31
+#: app/forms.py:21 app/forms.py:45
 msgid "email_domain_not_exist"
 msgstr ""
 "The existence of the email domain could not be verified. Please, verify the "
 "email entered. "
 
-#: reidi/settings.py:146 templates/base.html:71 templates/base.html:76
+#: app/forms.py:26
+msgid "email_domain_restriction"
+msgstr ""
+"Your email account does not belong to a valid institutional domain. You must "
+"use an institutional email account. "
+
+#: app/forms.py:64
+msgid "email_must_be_unique"
+msgstr "There is already a user with this email"
+
+#: reidi/settings.py:156 reidi/settings.tpl.py:158 templates/base.html:71
+#: templates/base.html:76
 msgid "Spanish"
 msgstr "Spanish"
 
-#: reidi/settings.py:147 templates/base.html:72 templates/base.html:78
+#: reidi/settings.py:157 reidi/settings.tpl.py:159 templates/base.html:72
+#: templates/base.html:78
 msgid "English"
 msgstr "English"
 
