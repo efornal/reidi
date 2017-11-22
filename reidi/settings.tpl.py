@@ -36,13 +36,22 @@ ALLOWED_HOSTS = ['*']
 
 # =================================\
 # email configuration server
-EMAIL_HOST='correo.intranet'
-EMAIL_PORT=25
-EMAIL_HOST_PASSWORD=''
-EMAIL_HOST_USER=''
+EMAIL_HOST = 'correo.intranet'
+EMAIL_PORT = 25
+EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = ''
+#
 # email configuration application
 EMAIL_FROM = 'noreply@rectorado.unl.edu.ar'
 EMAIL_SUBJECT = 'Solicitud de cuenta'
+#
+# Validate that the domain of the email corresponds to the indicated ones
+# ej. 'fich.unl.edu.ar', 'unl.edu.ar', are different
+VALIDATE_EMAIL_DOMAINS = []
+#
+# Performs a DNS query to verify the resolution of the domain
+VALIDATE_EXISTENCE_EMAIL_DOMAIN = True
+#
 # =================================/
 
 # Application definition
