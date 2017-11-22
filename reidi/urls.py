@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 """reidi URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,6 +15,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import ugettext_lazy as _
+
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
@@ -21,3 +27,7 @@ urlpatterns = [
     url(r'^', include('app.urls')),
 ]
 
+
+urlpatterns += i18n_patterns(
+    url(r'^', include('app.urls')),
+)

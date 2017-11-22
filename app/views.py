@@ -40,23 +40,6 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def account_activate(request, uidb64, token):
-    try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
-
-    if user is not None and account_activation_token.check_token(user, token):
-        logging.warning('Activating {} user with token {}'.format(user, token))
-        user.is_active = True
-        user.save()
-        login(request, user)
-        return render(request, 'msg_wellcome.html')
-    else:
-        logging.error('Error activating {} user with token {}'.format(user, token))
-        return redirect('login')
-
 
 def account_sign_up(request):
     context={}
@@ -96,6 +79,24 @@ def send_activation_email(user, request):
     return email_sent
 
 
+def account_activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and account_activation_token.check_token(user, token):
+        logging.warning('Activating {} user with token {}'.format(user, token))
+        user.is_active = True
+        user.save()
+        login(request, user)
+        return render(request, 'msg_wellcome.html')
+    else:
+        logging.error('Error activating {} user with token {}'.format(user, token))
+        return redirect('login')
+
+    
 def account_create(request):
     context = {}
 
