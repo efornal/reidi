@@ -23,13 +23,13 @@ msgstr ""
 msgid "email_domain_restriction"
 msgstr ""
 "Su cuenta de correo no pertenece a un dominio institucional válido. Debe "
-"usar una cuenta de correo institucional."
+"usar una cuenta de correo institucional. "
 
 #: app/forms.py:31
 msgid "email_domain_not_exist"
 msgstr ""
 "No se ha podido verificar la existencia del dominio del email; Por favor, "
-"verifique el email ingresado."
+"verifique el email ingresado. "
 
 #: reidi/settings.py:146 templates/base.html:71 templates/base.html:76
 msgid "Spanish"

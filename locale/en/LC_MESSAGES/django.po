@@ -22,13 +22,13 @@ msgstr ""
 msgid "email_domain_restriction"
 msgstr ""
 "Your email account does not belong to a valid institutional domain. You must "
-"use an institutional email account"
+"use an institutional email account. "
 
 #: app/forms.py:31
 msgid "email_domain_not_exist"
 msgstr ""
 "The existence of the email domain could not be verified. Please, verify the "
-"email entered"
+"email entered. "
 
 #: reidi/settings.py:146 templates/base.html:71 templates/base.html:76
 msgid "Spanish"
