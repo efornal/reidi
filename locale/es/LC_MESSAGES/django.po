@@ -79,19 +79,23 @@ msgstr "Iniciar sesión"
 
 #: templates/index.html:8
 msgid "welcome_message_title"
-msgstr ""
+msgstr "Bienvenido!"
 
 #: templates/index.html:9
 msgid "welcome_message"
 msgstr ""
+"Este sistema le permitirá gestionar su cuenta de usuario de ldap y realizar "
+"búsquedas de otros usuarios. <br> Para poder editar los datos de tu cuenta, "
+"debes registrarte utilizando los datos de login de LDAP que utilizas "
+"normalmente."
 
 #: templates/msg_logout.html:6
 msgid "logout_message_title"
-msgstr ""
+msgstr "Hasta luego!"
 
 #: templates/msg_logout.html:7
 msgid "logout_message"
-msgstr ""
+msgstr "Gracias por el tiempo que has dedicado al sitio web hoy."
 
 #: templates/registration/login.html:47
 msgid "password"
