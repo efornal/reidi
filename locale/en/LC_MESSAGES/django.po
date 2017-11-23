@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 09:46-0300\n"
+"POT-Creation-Date: 2017-11-23 10:23-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,6 +61,7 @@ msgid "language"
 msgstr "language"
 
 #: templates/base.html:85 templates/registration/login.html:41
+#: templates/sign_up.html:38
 msgid "username"
 msgstr "username"
 
@@ -76,6 +77,19 @@ msgstr "Close session"
 #: templates/registration/login.html:52
 msgid "Init_session"
 msgstr "Init session"
+
+#: templates/forgot_password.html:33
+msgid "reset_password"
+msgstr "Reset password"
+
+#: templates/forgot_password.html:44
+msgid "reset_password_message"
+msgstr ""
+"Enter your email address and we will send you a link to reset your password."
+
+#: templates/forgot_password.html:51
+msgid "send_reset_password_email"
+msgstr "Send password reset email"
 
 #: templates/index.html:8
 msgid "welcome_message_title"
@@ -100,7 +114,7 @@ msgstr "Thank you for the time you spent on the website today."
 msgid "forgot_password"
 msgstr "Forgot password?"
 
-#: templates/registration/login.html:47
+#: templates/registration/login.html:47 templates/sign_up.html:52
 msgid "password"
 msgstr "password"
 
@@ -111,3 +125,23 @@ msgstr "I do not have an account."
 #: templates/registration/login.html:60
 msgid "request_an_account"
 msgstr "Request an account"
+
+#: templates/sign_up.html:33
+msgid "Create_personal_account"
+msgstr "Create your personal account"
+
+#: templates/sign_up.html:45
+msgid "email"
+msgstr "email"
+
+#: templates/sign_up.html:59
+msgid "confirm_password"
+msgstr "confirm password"
+
+#: templates/sign_up.html:65
+msgid "Create_an_account_message"
+msgstr "When requesting the account, we will send you a confirmation email with the information referred to the request."
+
+#: templates/sign_up.html:74
+msgid "Create_an_account"
+msgstr "Create an account"

@@ -51,6 +51,16 @@ def logout_message(request):
     return render(request, 'msg_logout.html', context)
 
 
+def account_forgot_password(request):
+    context={}
+    return render(request, 'forgot_password.html', context)
+
+
+def account_reset_password(request):
+    context={}
+    return render(request, 'msg_logout.html', context)
+
+
 def send_activation_email(user, request):
     email_sent = False
     current_site = get_current_site(request)

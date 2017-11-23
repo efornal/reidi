@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout,{'next_page': 'logout_message'},name='logout'),
     url(r'^en/$', views.index, name='index'),
     url(r'^account/signup/$', views.account_sign_up, name='account_sign_up'),
+    url(r'^account/forgot_password/$', views.account_forgot_password, name='account_forgot_password'),
+    url(r'^account/reset_password/$', views.account_reset_password, name='account_reset_password'),
     url(r'^account/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.account_activate, name='account_activate'),
     url(r'^account/create/$', views.account_create, name='account_create'),

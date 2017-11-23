@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 09:46-0300\n"
+"POT-Creation-Date: 2017-11-23 10:23-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,6 +62,7 @@ msgid "language"
 msgstr "idioma"
 
 #: templates/base.html:85 templates/registration/login.html:41
+#: templates/sign_up.html:38
 msgid "username"
 msgstr "usuario"
 
@@ -77,6 +78,20 @@ msgstr "Cerrar sesión"
 #: templates/registration/login.html:52
 msgid "Init_session"
 msgstr "Iniciar sesión"
+
+#: templates/forgot_password.html:33
+msgid "reset_password"
+msgstr "Restablecer contraseña"
+
+#: templates/forgot_password.html:44
+msgid "reset_password_message"
+msgstr ""
+"Ingrese su dirección de correo electrónico y le enviaremos un enlace para "
+"restablecer su contraseña."
+
+#: templates/forgot_password.html:51
+msgid "send_reset_password_email"
+msgstr "Enviar correo para restablecer contraseña"
 
 #: templates/index.html:8
 msgid "welcome_message_title"
@@ -102,7 +117,7 @@ msgstr "Gracias por el tiempo que has dedicado al sitio web hoy."
 msgid "forgot_password"
 msgstr "¿Olvidó su contraseña?"
 
-#: templates/registration/login.html:47
+#: templates/registration/login.html:47 templates/sign_up.html:52
 msgid "password"
 msgstr "contraseña"
 
@@ -113,3 +128,23 @@ msgstr "No tengo una cuenta."
 #: templates/registration/login.html:60
 msgid "request_an_account"
 msgstr "Solicitar una"
+
+#: templates/sign_up.html:33
+msgid "Create_personal_account"
+msgstr "Crear una cuenta personal"
+
+#: templates/sign_up.html:45
+msgid "email"
+msgstr "email"
+
+#: templates/sign_up.html:59
+msgid "confirm_password"
+msgstr "confirmar contraseña"
+
+#: templates/sign_up.html:65
+msgid "Create_an_account_message"
+msgstr "Al solicitar la cuenta, le enviaremos un email de confirmación con los datos referidos a la solicitud."
+
+#: templates/sign_up.html:74
+msgid "Create_an_account"
+msgstr "Crea cuenta personal"
