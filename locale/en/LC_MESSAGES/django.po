@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-22 14:24-0300\n"
+"POT-Creation-Date: 2017-11-23 09:46-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgstr "Home"
 msgid "language"
 msgstr "language"
 
-#: templates/base.html:85
+#: templates/base.html:85 templates/registration/login.html:41
 msgid "username"
 msgstr "username"
 
@@ -72,7 +72,8 @@ msgstr "Edit account"
 msgid "Close_session"
 msgstr "Close session"
 
-#: templates/base.html:104
+#: templates/base.html:104 templates/registration/login.html:33
+#: templates/registration/login.html:52
 msgid "Init_session"
 msgstr "Init session"
 
@@ -95,6 +96,18 @@ msgstr "Bye!"
 msgid "logout_message"
 msgstr "Thank you for the time you spent on the website today."
 
+#: templates/registration/login.html:35
+msgid "forgot_password"
+msgstr "Forgot password?"
+
 #: templates/registration/login.html:47
 msgid "password"
 msgstr "password"
+
+#: templates/registration/login.html:58
+msgid "not_have_account"
+msgstr "I do not have an account."
+
+#: templates/registration/login.html:60
+msgid "request_an_account"
+msgstr "Request an account"
