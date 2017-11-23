@@ -172,7 +172,7 @@ USE_TZ = True
 
 DEFAULT_CHARSET = 'utf-8'
 
-LOGIN_URL='/app/login/'
+LOGIN_URL='/login/'
 
 LOGIN_REDIRECT_URL = '/'
 
