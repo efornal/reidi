@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 10:23-0300\n"
+"POT-Creation-Date: 2017-11-27 12:13-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,12 +34,12 @@ msgstr ""
 msgid "email_must_be_unique"
 msgstr "There is already a user with this email"
 
-#: reidi/settings.py:156 reidi/settings.tpl.py:158 templates/base.html:71
+#: reidi/settings.py:168 reidi/settings.tpl.py:169 templates/base.html:71
 #: templates/base.html:76
 msgid "Spanish"
 msgstr "Spanish"
 
-#: reidi/settings.py:157 reidi/settings.tpl.py:159 templates/base.html:72
+#: reidi/settings.py:169 reidi/settings.tpl.py:170 templates/base.html:72
 #: templates/base.html:78
 msgid "English"
 msgstr "English"
@@ -78,9 +78,34 @@ msgstr "Close session"
 msgid "Init_session"
 msgstr "Init session"
 
-#: templates/forgot_password.html:33
+#: templates/confirm_reset_password.html:34 templates/forgot_password.html:33
 msgid "reset_password"
 msgstr "Reset password"
+
+#: templates/confirm_reset_password.html:38
+#: templates/registration/login.html:47 templates/sign_up.html:52
+msgid "password"
+msgstr "password"
+
+#: templates/confirm_reset_password.html:45 templates/sign_up.html:59
+msgid "confirm_password"
+msgstr "confirm password"
+
+#: templates/confirm_reset_password.html:51
+msgid "confirm_reset_password_message"
+msgstr ""
+"Enter your email address and we will send you a link to reset your password."
+
+#: templates/confirm_reset_password.html:58
+msgid "_confirm_reset_password"
+msgstr "Confirm reset password"
+
+#: templates/email_password_changed.html:9
+#: templates/email_reset_password.html:11 templates/email_sign_up.html:11
+msgid "email_footer"
+msgstr ""
+"If you have any questions, you can contact the Help DeskBest regards, \n"
+"The system administration team"
 
 #: templates/forgot_password.html:44
 msgid "reset_password_message"
@@ -102,6 +127,14 @@ msgstr ""
 "other users.<br> In order to edit your account data, you must register using "
 "the Ldap login data that you normally use."
 
+#: templates/msg_confirm_reset_password.html:6
+msgid "password_has_been_reset"
+msgstr "Password has been reset"
+
+#: templates/msg_email_not_sent.html:6 templates/msg_email_sent.html:6
+msgid "confirmation_email"
+msgstr "Confirmation email"
+
 #: templates/msg_logout.html:6
 msgid "logout_message_title"
 msgstr "Bye!"
@@ -110,13 +143,14 @@ msgstr "Bye!"
 msgid "logout_message"
 msgstr "Thank you for the time you spent on the website today."
 
+#: templates/msg_reset_password_email_not_sent.html:6
+#: templates/msg_reset_password_email_sent.html:6
+msgid "email_to_reset_password"
+msgstr "Email to reset password"
+
 #: templates/registration/login.html:35
 msgid "forgot_password"
 msgstr "Forgot password?"
-
-#: templates/registration/login.html:47 templates/sign_up.html:52
-msgid "password"
-msgstr "password"
 
 #: templates/registration/login.html:58
 msgid "not_have_account"
@@ -134,14 +168,15 @@ msgstr "Create your personal account"
 msgid "email"
 msgstr "email"
 
-#: templates/sign_up.html:59
-msgid "confirm_password"
-msgstr "confirm password"
-
 #: templates/sign_up.html:65
 msgid "Create_an_account_message"
-msgstr "When requesting the account, we will send you a confirmation email with the information referred to the request."
+msgstr ""
+"When requesting the account, we will send you a confirmation email with the "
+"information referred to the request."
 
-#: templates/sign_up.html:74
+#: templates/sign_up.html:72
 msgid "Create_an_account"
 msgstr "Create an account"
+
+#~ msgid "confirm_reset_password"
+#~ msgstr "Confirm reset password"

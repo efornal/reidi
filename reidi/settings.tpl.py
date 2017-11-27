@@ -36,23 +36,34 @@ ALLOWED_HOSTS = ['*']
 
 # =================================\
 # email configuration server
-EMAIL_HOST = 'correo.intranet'
+EMAIL_HOST = 'correo.domain.com'
 EMAIL_PORT = 25
-EMAIL_HOST_PASSWORD = ''
-EMAIL_HOST_USER = ''
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 #
-# email configuration application
-EMAIL_FROM = 'noreply@rectorado.unl.edu.ar'
-EMAIL_SUBJECT = 'Solicitud de cuenta'
+# email application configuration 
+EMAIL_REPLY_TO = ['noreply@domain.com']
+#
+# sign up email configuration
+EMAIL_SIGN_UP_FROM = 'reidi@domain.com'
+EMAIL_SIGN_UP_SUBJECT = 'Solicitud de cuenta'
+#
+# reset password email configuration
+EMAIL_RESET_PASSWORD_FROM = 'reidi@domain.com'
+EMAIL_RESET_PASSWORD_SUBJECT = 'Solicitud para restablecer contraseña'
+#
+# password changed email configuration
+EMAIL_PASSWORD_CHANGED_SUBJECT = 'Contraseña de cuenta de email cambiada'
+EMAIL_PASSWORD_CHANGED_FROM = 'reidi@domain.com'
 #
 # Validate that the domain of the email corresponds to the indicated ones
-# ej. 'fich.unl.edu.ar', 'unl.edu.ar', are different
-VALIDATE_EMAIL_DOMAINS = []
+VALIDATE_EMAIL_DOMAINS = ['domain.com',]
 #
 # Performs a DNS query to verify the resolution of the domain
 VALIDATE_EXISTENCE_EMAIL_DOMAIN = True
 #
 # =================================/
+
 
 # Application definition
 
@@ -159,8 +170,10 @@ LANGUAGES = (
   ('en', _('English')),
 )
 
-LOCALE_PATHS = (
-     BASE_DIR + '/locale', )
+LOCALE_PATHS = [
+    os.path.join('/srv/reidi/shared/app/locale/'),
+    os.path.join(BASE_DIR, 'locale/'),
+]
 
 TIME_ZONE = 'America/Argentina/Buenos_Aires'
 

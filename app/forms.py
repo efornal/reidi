@@ -68,3 +68,25 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+
+class ResetPasswordForm(forms.ModelForm):
+    email = forms.EmailField(
+        max_length=200,
+        help_text='Required',
+        validators=[validate_email_domain_restriction,
+                    validate_existence_email_domain])
+    class Meta:
+        model = User
+        fields = ('email',)
+
+        
+
+class DefinePasswordForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ('password1', 'password2')
+
+        
