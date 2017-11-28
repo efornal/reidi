@@ -38,6 +38,12 @@ def set_language(request, lang='es'):
 
 
 @login_required
+def application_new(request):
+    context={}
+    return render(request, 'application/new.html', context)
+
+
+@login_required
 def index(request):
     context={}
     return render(request, 'index.html', context)

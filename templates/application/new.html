@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="well bs-component">
+  <form class="form-horizontal" action="#" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Solicitud de recurso</legend>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="exampleSelect1">Dominio</label>
+        <div class="col-sm-4">
+          <select class="form-control" id="exampleSelect1">
+            <option>unl.edu.ar</option>
+            <option>servicios.unl.edu.ar</option>
+            <option>fich.unl.edu.ar</option>
+            <option>fadu.unl.edu.ar</option>
+            <option>...</option>
+          </select>
+        </div>
+        <label class="col-sm-2 control-label" for="exampleSelect1">recurso /</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="" />
+        </div>
+      </div>
+      
+      <!-- <div class="form-group"> -->
+      <!--   <label class="col-sm-2 control-label" for="exampleSelect1">Unidad Académica</label> -->
+      <!--   <div class="col-sm-4"> -->
+      <!--     <select class="form-control" id="exampleSelect1"> -->
+      <!--       <option>fich</option> -->
+      <!--       <option>fadu</option> -->
+      <!--       <option>...</option> -->
+      <!--     </select> -->
+      <!--   </div> -->
+      <!-- </div> -->
+      
+      <div class="form-group" title="Grupo o area encargada de los contenidos">
+        <label class="col-sm-2 control-label" for="exampleSelect1">Grupo o Área</label>
+        <div class="col-sm-4">
+          <input class="form-control"  type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="exampleSelect1">Habilitado desde</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="" />
+        </div>
+        
+        <label class="col-sm-2 control-label" for="exampleSelect1">hasta</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="" />
+        </div>
+      </div>
+
+      <div class="form-group" title="Objetivos de la página">
+        <label class="col-sm-2 control-label" for="exampleTextarea">Objetivos</label>
+        <div class="col-sm-10">
+          <textarea class="form-control " id="exampleTextarea" rows="5"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group" title="Requerimientos de la página">
+        <label class="col-sm-2 control-label" for="exampleTextarea">Requerimientos</label>
+        <div class="col-sm-10">
+          <textarea class="form-control " id="exampleTextarea" rows="5"></textarea>
+        </div>
+      </div>
+
+      <br>
+      <div class="form-group pull-right">
+        <div class="col-xs-12">
+          <button type="reset" class="btn btn-default">Cancelar</button>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock %}
+

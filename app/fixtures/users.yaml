@@ -1,0 +1,20 @@
+[
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$36000$sQ1ZQ1u6uXRv$iiKUm9anBTp/gvACwvB1rWHG30wMB6Vn3BfjBpUqX7g=",
+        "last_login": "2017-11-28T15:26:19.858Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@rectorado.unl.edu.ar",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2017-11-16T11:41:44.504Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+]
