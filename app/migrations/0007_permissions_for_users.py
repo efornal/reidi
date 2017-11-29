@@ -14,8 +14,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RunSQL(
-            "GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO reidi_user;",
-            "REVOKE SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public FROM reidi_user;"
+            "GRANT ALL ON ALL TABLES IN SCHEMA public TO reidi_user;",
+            "REVOKE ALL ON ALL TABLES IN SCHEMA public FROM reidi_user;"
          ),
         migrations.RunSQL(
             "GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO reidi_user;",
