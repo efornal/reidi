@@ -11,6 +11,10 @@
         <label class="col-sm-2 control-label" for="exampleSelect1">Dominio</label>
         <div class="col-sm-4">
           <select class="form-control" id="exampleSelect1">
+            {% for domain in domains %}
+                <option value='{{ domain.0 }}' {% if domain.0 == form.domain %}selected{%endif%}>
+                                    {{ domain.1 }}{{i}}</option>
+            {% endfor %}
             <option>unl.edu.ar</option>
             <option>servicios.unl.edu.ar</option>
             <option>fich.unl.edu.ar</option>

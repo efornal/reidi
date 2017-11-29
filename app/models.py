@@ -21,8 +21,25 @@ class Domain(models.Model):
 
     def __unicode__(self):
         return self.name
-    
 
+    
+class DocumentType(models.Model):
+    id = models.AutoField(
+        primary_key=True,
+        null=False)
+    name = models.CharField(
+        max_length=255,
+        null=False)
+    
+    class Meta:
+        db_table = 'document_types'
+        verbose_name = _('DocumentType')
+        verbose_name_plural = _('DocumentTypes')
+        
+    def __unicode__(self):
+        return self.name
+
+    
 class Area(models.Model):
     id = models.AutoField(
         primary_key=True,

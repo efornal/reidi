@@ -1,0 +1,42 @@
+- model: app.domain
+  fields:
+    name: unl.edu.ar
+- model: app.domain
+  fields:
+    name: servicios.unl.edu.ar
+- model: app.domain
+  fields:
+    name: eis.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fadu.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fbcb.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fca.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fce.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fcjs.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fcm.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fcv.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fhuc.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fich.unl.edu.ar
+- model: app.domain
+  fields:
+    name: fiq.unl.edu.ar
+- model: app.domain
+  fields:
+    name: ism.unl.edu.ar
