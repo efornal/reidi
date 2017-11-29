@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext as _
 
-# Create your models here.
+
 class Domain(models.Model):
     id = models.AutoField(
         primary_key=True,
@@ -71,10 +71,10 @@ class Application(models.Model):
         null=False,
         default=None,
         verbose_name=_('user'))
-    name = models.CharField(
+    resource = models.CharField(
         max_length=255,
         null=False,
-        verbose_name=_('name'))
+        verbose_name=_('resource'))
     objectives = models.TextField(
         null=True,
         blank=True,

@@ -7,9 +7,8 @@ from django.shortcuts import redirect
 from django.utils import translation
 import logging
 from django.conf import settings
-
 from django.core.mail import send_mail
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 
 from django.shortcuts import render, redirect
@@ -17,6 +16,7 @@ from django.contrib.auth import login, authenticate
 from .forms import SignupForm
 from .forms import ResetPasswordForm
 from .forms import DefinePasswordForm
+from .models import Domain
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -39,7 +39,8 @@ def set_language(request, lang='es'):
 
 @login_required
 def application_new(request):
-    context={}
+    domains = Domain.objects.all()
+    context = {'domains': domains}
     return render(request, 'application/new.html', context)
 
 

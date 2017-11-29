@@ -8,8 +8,6 @@ from app.models import Domain
 from app.models import DocumentType
 
 
-# Register your models here.
-
 admin.site.register(Area)
 admin.site.register(Domain)
 admin.site.register(DocumentType)

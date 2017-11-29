@@ -5,79 +5,71 @@
   <form class="form-horizontal" action="#" method="post">
     {% csrf_token %}
     <fieldset>
-      <legend>Solicitud de recurso</legend>
+      <legend>{{ _('application_request') }}</legend>
 
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="exampleSelect1">Dominio</label>
+        <label class="col-sm-2 control-label" for="id_domain">{{ _('Domain') }}</label>
         <div class="col-sm-4">
-          <select class="form-control" id="exampleSelect1">
+          <select class="form-control" name="domain" id="id_domain">
             {% for domain in domains %}
-                <option value='{{ domain.0 }}' {% if domain.0 == form.domain %}selected{%endif%}>
-                                    {{ domain.1 }}{{i}}</option>
+                <option value="{{ domain.id }}" {% if domain.id == form.domain %}selected{%endif%}>
+                                    {{ domain.name }}</option>
             {% endfor %}
-            <option>unl.edu.ar</option>
-            <option>servicios.unl.edu.ar</option>
-            <option>fich.unl.edu.ar</option>
-            <option>fadu.unl.edu.ar</option>
-            <option>...</option>
           </select>
         </div>
-        <label class="col-sm-2 control-label" for="exampleSelect1">recurso /</label>
+        <label class="col-sm-2 control-label" for="id_resource">{{ _('resource') }} /</label>
         <div class="col-sm-4">
-          <input class="form-control" type="text" name="" />
+          <input class="form-control" type="text" name="resource" id="id_resource"
+                 value="{{ form.resource.value|default:'' }}"/>
         </div>
       </div>
-      
-      <!-- <div class="form-group"> -->
-      <!--   <label class="col-sm-2 control-label" for="exampleSelect1">Unidad Académica</label> -->
-      <!--   <div class="col-sm-4"> -->
-      <!--     <select class="form-control" id="exampleSelect1"> -->
-      <!--       <option>fich</option> -->
-      <!--       <option>fadu</option> -->
-      <!--       <option>...</option> -->
-      <!--     </select> -->
-      <!--   </div> -->
-      <!-- </div> -->
-      
-      <div class="form-group" title="Grupo o area encargada de los contenidos">
-        <label class="col-sm-2 control-label" for="exampleSelect1">Grupo o Área</label>
+            
+      <div class="form-group" title="{{ _('Area_title') }}">
+        <label class="col-sm-2 control-label" for="id_area">{{ _('Area') }}</label>
         <div class="col-sm-4">
-          <input class="form-control"  type="text">
+          <select class="form-control" name="domain" id="id_domain">
+            {% for area in areas %}
+                <option value="{{ area.id }}" {% if area.id == form.area %}selected{%endif%}>
+                                    {{ area.name }}</option>
+            {% endfor %}
+          </select>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="exampleSelect1">Habilitado desde</label>
+        <label class="col-sm-2 control-label" for="id_date_from">{{ _('Enable_from') }}</label>
         <div class="col-sm-4">
-          <input class="form-control" type="text" name="" />
+          <input class="form-control" type="text" name="date_from" id="id_date_from"
+                 value="{{ form.date_from.value|default:'' }}"/>
         </div>
         
-        <label class="col-sm-2 control-label" for="exampleSelect1">hasta</label>
+        <label class="col-sm-2 control-label" for="id_date_until">{{ _('until') }}</label>
         <div class="col-sm-4">
-          <input class="form-control" type="text" name="" />
+          <input class="form-control" type="text" name="date_until" id="id_date_until"
+                 value="{{ form.date_until.value|default:'' }}"/>
         </div>
       </div>
 
-      <div class="form-group" title="Objetivos de la página">
-        <label class="col-sm-2 control-label" for="exampleTextarea">Objetivos</label>
+      <div class="form-group" title="{{ _('Objectives_title') }}">
+        <label class="col-sm-2 control-label" for="id_objectives">{{ _('Objectives') }}</label>
         <div class="col-sm-10">
-          <textarea class="form-control " id="exampleTextarea" rows="5"></textarea>
+          <textarea class="form-control " name="objectives" id="id_objectives" rows="5"></textarea>
         </div>
       </div>
 
-      <div class="form-group" title="Requerimientos de la página">
-        <label class="col-sm-2 control-label" for="exampleTextarea">Requerimientos</label>
+      <div class="form-group" title="{{ _('Requirements_title') }}">
+        <label class="col-sm-2 control-label" for="id_requirements">{{ _('Requirements') }}</label>
         <div class="col-sm-10">
-          <textarea class="form-control " id="exampleTextarea" rows="5"></textarea>
+          <textarea class="form-control" name="requirements" id="id_requirements" rows="5"></textarea>
         </div>
       </div>
 
       <br>
       <div class="form-group pull-right">
         <div class="col-xs-12">
-          <button type="reset" class="btn btn-default">Cancelar</button>
+          <button type="reset" class="btn btn-default">{{ _('Cancel') }}</button>
           <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+          <button type="submit" class="btn btn-primary">{{ _('Send_application') }}</button>
         </div>
       </div>
     </fieldset>

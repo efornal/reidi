@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 12:13-0300\n"
+"POT-Creation-Date: 2017-11-29 11:13-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,86 @@ msgstr ""
 msgid "email_must_be_unique"
 msgstr "Ya existe un usuario con este email"
 
+#: app/models.py:15 app/models.py:50
+msgid "name"
+msgstr "Nombre"
+
+#: app/models.py:19 templates/application/new.html:11
+msgid "Domain"
+msgstr "Dominio"
+
+#: app/models.py:20
+msgid "Domains"
+msgstr "Dominios"
+
+#: app/models.py:36
+msgid "DocumentType"
+msgstr "Tipo de documento"
+
+#: app/models.py:37
+msgid "DocumentTypes"
+msgstr "Tipos de documentos"
+
+#: app/models.py:54
+msgid "description"
+msgstr "descripción"
+
+#: app/models.py:58 templates/application/new.html:28
+msgid "Area"
+msgstr "Area"
+
+#: app/models.py:59
+msgid "Areas"
+msgstr "Areas"
+
+#: app/models.py:73
+msgid "user"
+msgstr "usuario"
+
+#: app/models.py:77 templates/application/new.html:20
+msgid "resource"
+msgstr "recurso"
+
+#: app/models.py:81
+msgid "objectives"
+msgstr "objetivos"
+
+#: app/models.py:85
+msgid "requirements"
+msgstr "requerimientos"
+
+#: app/models.py:88
+msgid "created_at"
+msgstr "creado"
+
+#: app/models.py:91
+msgid "updated_at"
+msgstr "modificado"
+
+#: app/models.py:93
+msgid "date_from"
+msgstr "fecha desde"
+
+#: app/models.py:95
+msgid "date_until"
+msgstr "fecha hasta"
+
+#: app/models.py:99
+msgid "area"
+msgstr "area"
+
+#: app/models.py:103
+msgid "domain"
+msgstr "dominio"
+
+#: app/models.py:107
+msgid "Application"
+msgstr "Solicitud"
+
+#: app/models.py:108
+msgid "Applications"
+msgstr "Solicitudes"
+
 #: reidi/settings.py:168 reidi/settings.tpl.py:169 templates/base.html:71
 #: templates/base.html:76
 msgid "Spanish"
@@ -44,6 +124,46 @@ msgstr "Español"
 #: templates/base.html:78
 msgid "English"
 msgstr "Inglés"
+
+#: templates/application/new.html:8
+msgid "application_request"
+msgstr "Solicitud de recurso"
+
+#: templates/application/new.html:27
+msgid "Area_title"
+msgstr "Grupo o area encargada de los contenidos"
+
+#: templates/application/new.html:40
+msgid "Enable_from"
+msgstr "Habilitado desde"
+
+#: templates/application/new.html:46
+msgid "until"
+msgstr "hasta"
+
+#: templates/application/new.html:53
+msgid "Objectives_title"
+msgstr "Objetivos por el cual se requiere el recurso"
+
+#: templates/application/new.html:54
+msgid "Objectives"
+msgstr "Objetivos"
+
+#: templates/application/new.html:60
+msgid "Requirements_title"
+msgstr "Requerimientos del recurso: Imágenes, textos,.."
+
+#: templates/application/new.html:61
+msgid "Requirements"
+msgstr "Requerimientos"
+
+#: templates/application/new.html:70
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: templates/application/new.html:72
+msgid "Send_application"
+msgstr "Enviar solicitud"
 
 #: templates/base.html:38 templates/base.html:41 templates/base.html:64
 msgid "Go_home"
@@ -66,15 +186,15 @@ msgstr "idioma"
 msgid "username"
 msgstr "usuario"
 
-#: templates/base.html:91
+#: templates/base.html:96
 msgid "Edit_account"
 msgstr "Editar cuenta"
 
-#: templates/base.html:94 templates/base.html:98
+#: templates/base.html:99 templates/base.html:103
 msgid "Close_session"
 msgstr "Cerrar sesión"
 
-#: templates/base.html:104 templates/registration/login.html:33
+#: templates/base.html:109 templates/registration/login.html:33
 #: templates/registration/login.html:52
 msgid "Init_session"
 msgstr "Iniciar sesión"
@@ -181,6 +301,3 @@ msgstr ""
 #: templates/sign_up.html:72
 msgid "Create_an_account"
 msgstr "Crea cuenta personal"
-
-#~ msgid "confirm_reset_password"
-#~ msgstr "Confirmar restablecer contraseña"
