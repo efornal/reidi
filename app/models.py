@@ -108,5 +108,5 @@ class Application(models.Model):
         verbose_name_plural = _('Applications')
 
     def __unicode__(self):
-        return self.name
+        return self.resource
     

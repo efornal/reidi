@@ -3,10 +3,14 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 import logging
+from .models import Application
+from .models import Domain
+from .models import Area
+from datetimewidget.widgets import DateTimeWidget
 import dns.resolver, dns.exception
 from django.utils.translation import ugettext as _
 from django.conf import settings
-
+from datetime import datetime
     
 def validate_email_domain_restriction(value):
     logging.info('Checking email domain in preset domains..')
@@ -89,4 +93,40 @@ class DefinePasswordForm(UserCreationForm):
         model = User
         fields = ('password1', 'password2')
 
-        
+
+
+class ApplicationForm(forms.ModelForm):
+    resource = forms.CharField(
+        max_length=255, 
+        required=True,
+        label=_('resource'))
+    objectives = forms.CharField(widget=forms.Textarea)
+    date_from = forms.DateTimeField(
+        required=True,
+        label=_('date_from'))
+    date_until = forms.DateTimeField(
+        required=True,
+        label=_('date_until'))
+    requirements = forms.CharField(widget=forms.Textarea)
+    domain = forms.ModelChoiceField(
+        queryset=Domain.objects.all(),
+        to_field_name = "id",
+        required = True,
+        label=_('domain'))
+    area = forms.ModelChoiceField(
+        queryset=Area.objects.all(),
+        to_field_name = "id",
+        required = True,
+        label=_('area'))
+    user = forms.ModelChoiceField(
+        queryset=User.objects.all(),
+        to_field_name = "id",
+        required = True,
+        label=_('user'))
+    
+
+    class Meta:
+        model = Application
+        fields = ('domain', 'area', 'objectives', 'requirements',
+                  'resource','user','date_from', 'date_until')
+

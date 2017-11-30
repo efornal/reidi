@@ -10,13 +10,15 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.core.mail import BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
-
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import SignupForm
 from .forms import ResetPasswordForm
 from .forms import DefinePasswordForm
+from .forms import ApplicationForm
 from .models import Domain
+from .models import Area
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -40,7 +42,8 @@ def set_language(request, lang='es'):
 @login_required
 def application_new(request):
     domains = Domain.objects.all()
-    context = {'domains': domains}
+    areas = Area.objects.all()
+    context = {'domains': domains, 'areas': areas}
     return render(request, 'application/new.html', context)
 
 
@@ -49,6 +52,33 @@ def index(request):
     context={}
     return render(request, 'index.html', context)
 
+def sanitize_application_create_params(request):
+    params = request.POST.copy()
+    try:
+        params['user'] = request.user.pk
+        if 'date_from' in params:
+            params['date_from'] = unicode( datetime.strptime(params['date_from'],'%d-%m-%Y %H:%M'))
+        if 'date_until' in params:
+            params['date_until'] = unicode(datetime.strptime(params['date_until'], '%d-%m-%Y %H:%M'))
+    except Exception, e:
+        logging.error('ERROR Exception',e)
+    return params
+
+@login_required
+def application_create(request):
+    context={}
+    params_s = sanitize_application_create_params(request)
+    logging.warning("------------------------------ params_s")
+    logging.warning(params_s)
+    form = ApplicationForm(params_s)
+    if form.is_valid():
+        logging.warning("creating new application..")
+        form.save()
+    else:
+        logging.warning("ERROR creating new application..")
+        logging.error(form.errors)
+        
+    return render(request, 'application/create.html', context)
 
 
 def account_sign_up(request):
@@ -59,8 +89,6 @@ def account_sign_up(request):
 def logout_message(request):
     context={}
     return render(request, 'msg_logout.html', context)
-
-
 
 
 def send_activation_email(user, request):
