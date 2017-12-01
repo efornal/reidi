@@ -31,7 +31,7 @@
           
           <fieldset>
             <legend style="color: #008bb8;">{{ _('Init_session') }}
-              <a href="{% url 'account_forgot_password' %}"
+              <a href="{% url 'auth_password_reset' %}"
                  style="float:right; font-size: 70%; position: relative;top:5px ">
                 {{ _('forgot_password') }}
               </a>
@@ -60,7 +60,7 @@
               <div class="col-md-12 control pull left">
                 <div style="border-top: 1px solid#888; margin-top:10px; padding-top:15px; font-size:85%">
                   {{ _('not_have_account') }} 
-                  <a href="{% url 'account_sign_up' %}"
+                  <a href="{% url 'registration_register' %}"
                      onclick="$('#loginbox').hide(); $('#signupbox').show()">
                     {{ _('request_an_account') }} 
                   </a>

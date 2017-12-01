@@ -4,7 +4,7 @@ Bienvenido {{ user.username }},
 No olvide confirmar su correo electrónico para terminar el registro.
 Para ello debe acceder al enlace que a continuación se indica.
 
-http://{{ domain }}{% url 'account_activate' uidb64=uid token=token %}
+http://{{ domain }}{% url 'registration_activate' uidb64=uid token=token %}
 
 Una vez hecho, podrá realizar la solicitud de dominios requerida.
 
