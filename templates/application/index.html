@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block content %}
+ 
+<div class="panel panel-default">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr class="active">
+          <th>{{ _('Domain') }}</th>
+          <th>{{ _('Resource') }}</th>
+          <th>{{ _('Date_from') }}</th>
+          <th>{{ _('Date_until') }}</th>
+          <th>{{ _('Area') }}</th>
+          <th>{{ _('Status') }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if applications %}
+        {% for application in applications %}
+        <tr>
+          <td>{{ application.domain|default:'' }}</td>
+          <td>{{ application.resource|default:'' }} </td>
+          <td>{{ application.date_from|date:'d-m-Y, H:i'|default:'' }} </td>
+          <td>{{ application.date_until|date:'d-m-Y, H:i'|default:'' }} </td>
+          <td>{{ application.area|default:'' }} </td>
+          <td><i class="glyphicon glyphicon glyphicon-ok"></i></td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
+

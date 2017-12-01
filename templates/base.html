@@ -90,12 +90,12 @@
                 {{ user.username }} <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href=""
+                <li><a href="{% url 'application_new' %}"
                        title="">Nueva Solicitud</a></li>
-                <li><a href=""
-                       title="">Listar Solicitudes</a></li>
+                <li><a href="{% url 'application_list' %}"
+                       title="">Solicitudes</a></li>
                 <li class="divider"></li>
-                <li><a href=""
+                <li><a href="#"
                        title="{{ _('Edit_account') }}">{{ _('Edit_account') }}</a></li>
                 <li class="divider"></li>
                 <li><a href="{% url 'logout' %}"

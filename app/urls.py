@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout,{'next_page': 'logout_message'},name='logout'),
     url(r'^en/$', views.index, name='index'),
     url(r'^application/new/$', views.application_new, name='application_new'),
+    url(r'^application/list/$', views.application_list, name='application_list'),
     url(r'^application/create/$', views.application_create, name='application_create'),
 
     url(r'^accounts/password/reset/$', auth.password_reset, name='auth_password_reset'),

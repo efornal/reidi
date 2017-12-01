@@ -18,6 +18,7 @@ from .forms import ResetPasswordForm
 from .forms import DefinePasswordForm
 from .forms import ApplicationForm
 from .models import Domain
+from .models import Application
 from .models import Area
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -45,6 +46,13 @@ def application_new(request):
     areas = Area.objects.all()
     context = {'domains': domains, 'areas': areas}
     return render(request, 'application/new.html', context)
+
+
+@login_required
+def application_list(request):
+    applications = Application.objects.filter(user=request.user.pk)
+    context = {'applications': applications}
+    return render(request, 'application/index.html', context)
 
 
 @login_required
