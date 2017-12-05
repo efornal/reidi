@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-05 11:11-0300\n"
+"POT-Creation-Date: 2017-12-05 13:17-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,19 +68,19 @@ msgstr "description"
 
 #: app/models.py:22
 msgid "is_default"
-msgstr ""
+msgstr "is default"
 
 #: app/models.py:27
 msgid "icon_link"
-msgstr ""
+msgstr "icon link"
 
 #: app/models.py:31
 msgid "State"
-msgstr ""
+msgstr "State"
 
 #: app/models.py:32
 msgid "States"
-msgstr ""
+msgstr "States"
 
 #: app/models.py:49 templates/application/index.html:12
 #: templates/application/new.html:13
@@ -165,8 +165,8 @@ msgstr "create application"
 #: templates/application/create.html:7
 msgid "create_application_message"
 msgstr ""
-"The request was made successfully. "
-"You can see the status of it in the request menu."
+"The request was made successfully. You can see the status of it in the "
+"request menu."
 
 #: templates/application/index.html:13
 msgid "Resource"
@@ -183,6 +183,10 @@ msgstr "Date until"
 #: templates/application/index.html:17
 msgid "Status"
 msgstr "Status"
+
+#: templates/application/index.html:36
+msgid "withouth_results"
+msgstr "No results found"
 
 #: templates/application/new.html:10
 msgid "application_request"
@@ -216,13 +220,53 @@ msgstr "Requirements of the resource: Images, texts, .."
 msgid "Requirements"
 msgstr "Requirements"
 
-#: templates/application/new.html:83
+#: templates/application/new.html:83 templates/auth/edit.html:69
 msgid "Cancel"
 msgstr "Cancel"
 
 #: templates/application/new.html:85
 msgid "Send_application"
 msgstr "Send application"
+
+#: templates/auth/edit.html:10
+msgid "data_of_the_person"
+msgstr "Data of the person"
+
+#: templates/auth/edit.html:14
+msgid "Name"
+msgstr "Name"
+
+#: templates/auth/edit.html:19 templates/auth/edit.html:27
+msgid "Surname"
+msgstr "Surname"
+
+#: templates/auth/edit.html:34
+msgid "Document_type"
+msgstr "National type identifier"
+
+#: templates/auth/edit.html:43
+msgid "Document_number"
+msgstr "Number"
+
+#: templates/auth/edit.html:50
+msgid "Email"
+msgstr "Email"
+
+#: templates/auth/edit.html:58
+msgid "Telephone_number"
+msgstr "Telephone number"
+
+#: templates/auth/edit.html:62
+msgid "Examples"
+msgstr "Examples"
+
+#: templates/auth/edit.html:63
+msgid "or_alone"
+msgstr "or alone"
+
+#: templates/auth/edit.html:71
+msgid "Save"
+msgstr "Save"
 
 #: templates/auth/email_reset_password.html:11
 #: templates/auth/email_reset_password_done.html:9

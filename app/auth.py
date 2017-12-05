@@ -28,12 +28,37 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
 
 
 
 def logout_message(request):
     context={}
     return render(request, 'msg_logout.html', context)
+
+
+@login_required
+def edit(request):
+    context={}
+    return render(request, 'auth/edit.html', context)
+
+@login_required
+def save(request):
+    context={}
+    params = request.POST.copy()
+    params.update({'username':request.user.username})
+    logging.warning("Update user {}".format(params))
+    # form = FrontLdapPersonForm(params,instance=person)
+    
+    # if form.is_valid():
+    #     form.instance.save()
+    #     messages.info(request, _('changes_saved'))
+    # else:
+    #     logging.warning ("Error to update ldap person {}".format(form.errors))
+    #     context.update({'form': form})
+    #     return render(request, 'edit.html', context)
+
+    return redirect('auth_edit')
 
 
 def send_reset_password_email(user, request):

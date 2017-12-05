@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-05 11:11-0300\n"
+"POT-Creation-Date: 2017-12-05 13:17-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr "usuario"
 
 #: app/models.py:15 app/models.py:45 app/models.py:80
 msgid "name"
-msgstr "Nombre"
+msgstr "nombre"
 
 #: app/models.py:19 app/models.py:84 app/models.py:168
 msgid "description"
@@ -166,8 +166,8 @@ msgstr "Crear solicitud"
 #: templates/application/create.html:7
 msgid "create_application_message"
 msgstr ""
-"La solicitud fué realizada con exito. "
-"Podrá ver el estado de la misma en el menú de solicitudes."
+"La solicitud fué realizada con exito. Podrá ver el estado de la misma en el "
+"menú de solicitudes."
 
 #: templates/application/index.html:13
 msgid "Resource"
@@ -184,6 +184,10 @@ msgstr "Fecha hasta"
 #: templates/application/index.html:17
 msgid "Status"
 msgstr "Estado"
+
+#: templates/application/index.html:36
+msgid "withouth_results"
+msgstr "No se han encontrado resultados"
 
 #: templates/application/new.html:10
 msgid "application_request"
@@ -217,13 +221,53 @@ msgstr "Requerimientos del recurso: Imágenes, textos,.."
 msgid "Requirements"
 msgstr "Requerimientos"
 
-#: templates/application/new.html:83
+#: templates/application/new.html:83 templates/auth/edit.html:69
 msgid "Cancel"
 msgstr "Cancelar"
 
 #: templates/application/new.html:85
 msgid "Send_application"
 msgstr "Enviar solicitud"
+
+#: templates/auth/edit.html:10
+msgid "data_of_the_person"
+msgstr "Datos personales"
+
+#: templates/auth/edit.html:14
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/auth/edit.html:19 templates/auth/edit.html:27
+msgid "Surname"
+msgstr "Apellido"
+
+#: templates/auth/edit.html:34
+msgid "Document_type"
+msgstr "Tipo de documento"
+
+#: templates/auth/edit.html:43
+msgid "Document_number"
+msgstr "Nro. de documento"
+
+#: templates/auth/edit.html:50
+msgid "Email"
+msgstr "Email"
+
+#: templates/auth/edit.html:58
+msgid "Telephone_number"
+msgstr "Nro. de teléfono"
+
+#: templates/auth/edit.html:62
+msgid "Examples"
+msgstr "Ejemplos"
+
+#: templates/auth/edit.html:63
+msgid "or_alone"
+msgstr "o sólo"
+
+#: templates/auth/edit.html:71
+msgid "Save"
+msgstr "Guardar"
 
 #: templates/auth/email_reset_password.html:11
 #: templates/auth/email_reset_password_done.html:9

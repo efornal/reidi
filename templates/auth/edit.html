@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="well bs-component">
+
+  <form class="form-horizontal" action="{% url 'auth_save' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+      <legend>{{ _('data_of_the_person') }}</legend>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">{{ _('Name') }}</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="name"
+                 value="{{ form.name.value|default:'' }}" />
+        </div>
+        <label class="col-sm-2 control-label" for="textinput">{{ _('Surname') }}</label>
+        <div class="col-sm-4" >
+          <input class="form-control" type="text" name="surname"
+                 value="{{ form.surname.value|default:'' }}" />
+        </div>
+      </div>
+      
+      <!-- <div class="form-group"> -->
+      <!--   <label class="col-sm-2 control-label" for="textinput">{{ _('Surname') }}</label> -->
+      <!--   <div class="col-sm-4"> -->
+      <!--     <input class="form-control" type="text" name="surname" -->
+      <!--            value="{{ form.surname.value|default:'' }}" /> -->
+      <!-- </div> -->
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">{{ _('Document_type') }}</label>
+        <div class="col-sm-4">
+          <select class="form-control" name="document_type" id="id_document_type">
+            {% for doc in documents %}
+            <option value="{{ doc.id }}" {% if doc.id == form.document %}selected{%endif%}>
+                                    {{ doc.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <label class="col-sm-2 control-label" for="textinput">{{ _('Document_number') }}</label>
+        <div class="col-sm-4" >
+          <input class="form-control" type="text" name="document_number"
+                 value="{{ form.document_number.value|default:'' }}" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">{{ _('Email') }}</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="email"
+                 value="{{ form.email.value|default:'' }}" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">{{ _('Telephone_number') }}</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" name="telephone_number" 
+                 value="{{ form.telephone_number.value|default:'' }}" />
+          <p class="help-block">{{ _('Examples') }} <strong>4571110 int 23</strong>,
+                {{ _('or_alone') }}: <strong>int 23</strong></p>
+        </div>
+      </div>
+      <br>
+      <div class="form-group pull-right">
+        <div class="col-xs-12">
+          <button type="reset" class="btn btn-default">{{ _('Cancel') }}</button>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <button type="submit" class="btn btn-primary">{{ _('Save') }}</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock %}
+

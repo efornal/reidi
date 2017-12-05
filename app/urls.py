@@ -7,6 +7,8 @@ from . import auth
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^accounts/edit/$', auth.edit, name='auth_edit'),
+    url(r'^accounts/save/$', auth.save, name='auth_save'),
     url(r'^accounts/login/$', auth_views.login,name='login'),
     url(r'^logout/message', auth.logout_message, name='logout_message'),
     url(r'^logout/$', auth_views.logout,{'next_page': 'logout_message'},name='logout'),
