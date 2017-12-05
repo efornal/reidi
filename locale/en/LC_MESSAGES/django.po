@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-29 11:13-0300\n"
+"POT-Creation-Date: 2017-12-05 11:11-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,223 +18,300 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app/forms.py:21 app/forms.py:45
+#: app/forms.py:25 app/forms.py:49
 msgid "email_domain_not_exist"
 msgstr ""
 "The existence of the email domain could not be verified. Please, verify the "
 "email entered. "
 
-#: app/forms.py:26
+#: app/forms.py:30
 msgid "email_domain_restriction"
 msgstr ""
 "Your email account does not belong to a valid institutional domain. You must "
 "use an institutional email account. "
 
-#: app/forms.py:64
+#: app/forms.py:68
 msgid "email_must_be_unique"
 msgstr "There is already a user with this email"
 
-#: app/models.py:15 app/models.py:50
-msgid "name"
-msgstr "name"
-
-#: app/models.py:19 templates/application/new.html:11
-msgid "Domain"
-msgstr "Domain"
-
-#: app/models.py:20
-msgid "Domains"
-msgstr "Domains"
-
-#: app/models.py:36
-msgid "DocumentType"
-msgstr "Document type"
-
-#: app/models.py:37
-msgid "DocumentTypes"
-msgstr "Document types"
-
-#: app/models.py:54
-msgid "description"
-msgstr "description"
-
-#: app/models.py:58 templates/application/new.html:28
-msgid "Area"
-msgstr "Area"
-
-#: app/models.py:59
-msgid "Areas"
-msgstr "Areas"
-
-#: app/models.py:73
-msgid "user"
-msgstr "username"
-
-#: app/models.py:77 templates/application/new.html:20
+#: app/forms.py:102 app/models.py:107 templates/application/new.html:22
 msgid "resource"
 msgstr "resource"
 
-#: app/models.py:81
-msgid "objectives"
-msgstr "objectives"
-
-#: app/models.py:85
-msgid "requirements"
-msgstr "requirements"
-
-#: app/models.py:88
-msgid "created_at"
-msgstr "created at"
-
-#: app/models.py:91
-msgid "updated_at"
-msgstr "updated at"
-
-#: app/models.py:93
+#: app/forms.py:106 app/models.py:123
 msgid "date_from"
 msgstr "date from"
 
-#: app/models.py:95
+#: app/forms.py:109 app/models.py:125
 msgid "date_until"
 msgstr "date until"
 
-#: app/models.py:99
-msgid "area"
-msgstr "area"
-
-#: app/models.py:103
+#: app/forms.py:115 app/models.py:133
 msgid "domain"
 msgstr "domain"
 
-#: app/models.py:107
+#: app/forms.py:120 app/models.py:129
+msgid "area"
+msgstr "area"
+
+#: app/forms.py:125 app/models.py:103
+msgid "user"
+msgstr "username"
+
+#: app/models.py:15 app/models.py:45 app/models.py:80
+msgid "name"
+msgstr "name"
+
+#: app/models.py:19 app/models.py:84 app/models.py:168
+msgid "description"
+msgstr "description"
+
+#: app/models.py:22
+msgid "is_default"
+msgstr ""
+
+#: app/models.py:27
+msgid "icon_link"
+msgstr ""
+
+#: app/models.py:31
+msgid "State"
+msgstr ""
+
+#: app/models.py:32
+msgid "States"
+msgstr ""
+
+#: app/models.py:49 templates/application/index.html:12
+#: templates/application/new.html:13
+msgid "Domain"
+msgstr "Domain"
+
+#: app/models.py:50
+msgid "Domains"
+msgstr "Domains"
+
+#: app/models.py:66
+msgid "DocumentType"
+msgstr "Document type"
+
+#: app/models.py:67
+msgid "DocumentTypes"
+msgstr "Document types"
+
+#: app/models.py:88 templates/application/index.html:16
+#: templates/application/new.html:30
+msgid "Area"
+msgstr "Area"
+
+#: app/models.py:89
+msgid "Areas"
+msgstr "Areas"
+
+#: app/models.py:111
+msgid "objectives"
+msgstr "objectives"
+
+#: app/models.py:115
+msgid "requirements"
+msgstr "requirements"
+
+#: app/models.py:118 app/models.py:164
+msgid "created_at"
+msgstr "created at"
+
+#: app/models.py:121
+msgid "updated_at"
+msgstr "updated at"
+
+#: app/models.py:140
 msgid "Application"
 msgstr "Application"
 
-#: app/models.py:108
+#: app/models.py:141
 msgid "Applications"
 msgstr "Applications"
 
-#: reidi/settings.py:168 reidi/settings.tpl.py:169 templates/base.html:71
-#: templates/base.html:76
+#: app/models.py:157
+msgid "application"
+msgstr "application"
+
+#: app/models.py:161
+msgid "state"
+msgstr "state"
+
+#: app/models.py:172
+msgid "Change"
+msgstr "Change"
+
+#: app/models.py:173
+msgid "Changes"
+msgstr "Changes"
+
+#: reidi/settings.py:180 reidi/settings.tpl.py:169 templates/base.html:74
+#: templates/base.html:79
 msgid "Spanish"
 msgstr "Spanish"
 
-#: reidi/settings.py:169 reidi/settings.tpl.py:170 templates/base.html:72
-#: templates/base.html:78
+#: reidi/settings.py:181 reidi/settings.tpl.py:170 templates/base.html:75
+#: templates/base.html:81
 msgid "English"
 msgstr "English"
 
-#: templates/application/new.html:8
+#: templates/application/create.html:6
+msgid "create_application"
+msgstr "create application"
+
+#: templates/application/create.html:7
+msgid "create_application_message"
+msgstr ""
+"The request was made successfully. "
+"You can see the status of it in the request menu."
+
+#: templates/application/index.html:13
+msgid "Resource"
+msgstr "Resource"
+
+#: templates/application/index.html:14
+msgid "Date_from"
+msgstr "Fate from"
+
+#: templates/application/index.html:15
+msgid "Date_until"
+msgstr "Date until"
+
+#: templates/application/index.html:17
+msgid "Status"
+msgstr "Status"
+
+#: templates/application/new.html:10
 msgid "application_request"
 msgstr "application request"
 
-#: templates/application/new.html:27
+#: templates/application/new.html:29
 msgid "Area_title"
 msgstr "Group or area in charge of the contents"
 
-#: templates/application/new.html:40
+#: templates/application/new.html:42
 msgid "Enable_from"
 msgstr "Enable from"
 
-#: templates/application/new.html:46
+#: templates/application/new.html:51
 msgid "until"
 msgstr "until"
 
-#: templates/application/new.html:53
+#: templates/application/new.html:66
 msgid "Objectives_title"
 msgstr "Objectives for which the resource is required"
 
-#: templates/application/new.html:54
+#: templates/application/new.html:67
 msgid "Objectives"
 msgstr "Objectives"
 
-#: templates/application/new.html:60
+#: templates/application/new.html:73
 msgid "Requirements_title"
 msgstr "Requirements of the resource: Images, texts, .."
 
-#: templates/application/new.html:61
+#: templates/application/new.html:74
 msgid "Requirements"
 msgstr "Requirements"
 
-#: templates/application/new.html:70
+#: templates/application/new.html:83
 msgid "Cancel"
 msgstr "Cancel"
 
-#: templates/application/new.html:72
+#: templates/application/new.html:85
 msgid "Send_application"
 msgstr "Send application"
 
-#: templates/base.html:38 templates/base.html:41 templates/base.html:64
-msgid "Go_home"
-msgstr "Go home"
-
-#: templates/base.html:58 templates/base.html:60
-msgid "search"
-msgstr "search"
-
-#: templates/base.html:65
-msgid "Home"
-msgstr "Home"
-
-#: templates/base.html:69
-msgid "language"
-msgstr "language"
-
-#: templates/base.html:85 templates/registration/login.html:41
-#: templates/sign_up.html:38
-msgid "username"
-msgstr "username"
-
-#: templates/base.html:96
-msgid "Edit_account"
-msgstr "Edit account"
-
-#: templates/base.html:99 templates/base.html:103
-msgid "Close_session"
-msgstr "Close session"
-
-#: templates/base.html:109 templates/registration/login.html:33
-#: templates/registration/login.html:52
-msgid "Init_session"
-msgstr "Init session"
-
-#: templates/confirm_reset_password.html:34 templates/forgot_password.html:33
-msgid "reset_password"
-msgstr "Reset password"
-
-#: templates/confirm_reset_password.html:38
-#: templates/registration/login.html:47 templates/sign_up.html:52
-msgid "password"
-msgstr "password"
-
-#: templates/confirm_reset_password.html:45 templates/sign_up.html:59
-msgid "confirm_password"
-msgstr "confirm password"
-
-#: templates/confirm_reset_password.html:51
-msgid "confirm_reset_password_message"
-msgstr ""
-"Enter your email address and we will send you a link to reset your password."
-
-#: templates/confirm_reset_password.html:58
-msgid "_confirm_reset_password"
-msgstr "Confirm reset password"
-
-#: templates/email_password_changed.html:9
-#: templates/email_reset_password.html:11 templates/email_sign_up.html:11
+#: templates/auth/email_reset_password.html:11
+#: templates/auth/email_reset_password_done.html:9
+#: templates/registration/activation_email.html:11
 msgid "email_footer"
 msgstr ""
 "If you have any questions, you can contact the Help DeskBest regards, \n"
 "The system administration team"
 
-#: templates/forgot_password.html:44
+#: templates/auth/password_reset.html:33
+#: templates/auth/password_reset_confirm.html:34
+msgid "reset_password"
+msgstr "Reset password"
+
+#: templates/auth/password_reset.html:44
 msgid "reset_password_message"
 msgstr ""
 "Enter your email address and we will send you a link to reset your password."
 
-#: templates/forgot_password.html:51
+#: templates/auth/password_reset.html:51
 msgid "send_reset_password_email"
 msgstr "Send password reset email"
+
+#: templates/auth/password_reset_complete.html:6
+msgid "password_has_been_reset"
+msgstr "Password has been reset"
+
+#: templates/auth/password_reset_confirm.html:38
+#: templates/registration/login.html:49
+#: templates/registration/registration_form.html:52
+msgid "password"
+msgstr "password"
+
+#: templates/auth/password_reset_confirm.html:45
+#: templates/registration/registration_form.html:59
+msgid "confirm_password"
+msgstr "confirm password"
+
+#: templates/auth/password_reset_confirm.html:51
+msgid "confirm_reset_password_message"
+msgstr ""
+"Enter your email address and we will send you a link to reset your password."
+
+#: templates/auth/password_reset_confirm.html:58
+msgid "_confirm_reset_password"
+msgstr "Confirm reset password"
+
+#: templates/auth/password_reset_done_not_sent.html:6
+#: templates/auth/password_reset_done_sent.html:6
+msgid "email_to_reset_password"
+msgstr "Email to reset password"
+
+#: templates/auth/password_reset_error.html:6
+msgid "password_has_not_been_reset"
+msgstr "the password could not be reset"
+
+#: templates/base.html:41 templates/base.html:44 templates/base.html:67
+msgid "Go_home"
+msgstr "Go home"
+
+#: templates/base.html:61 templates/base.html:63
+msgid "search"
+msgstr "search"
+
+#: templates/base.html:68
+msgid "Home"
+msgstr "Home"
+
+#: templates/base.html:72
+msgid "language"
+msgstr "language"
+
+#: templates/base.html:88 templates/registration/login.html:43
+#: templates/registration/registration_form.html:38
+msgid "username"
+msgstr "username"
+
+#: templates/base.html:99
+msgid "Edit_account"
+msgstr "Edit account"
+
+#: templates/base.html:102 templates/base.html:106
+msgid "Close_session"
+msgstr "Close session"
+
+#: templates/base.html:112 templates/registration/login.html:33
+#: templates/registration/login.html:55
+msgid "Init_session"
+msgstr "Init session"
 
 #: templates/index.html:8
 msgid "welcome_message_title"
@@ -247,14 +324,6 @@ msgstr ""
 "other users.<br> In order to edit your account data, you must register using "
 "the Ldap login data that you normally use."
 
-#: templates/msg_confirm_reset_password.html:6
-msgid "password_has_been_reset"
-msgstr "Password has been reset"
-
-#: templates/msg_email_not_sent.html:6 templates/msg_email_sent.html:6
-msgid "confirmation_email"
-msgstr "Confirmation email"
-
 #: templates/msg_logout.html:6
 msgid "logout_message_title"
 msgstr "Bye!"
@@ -263,37 +332,37 @@ msgstr "Bye!"
 msgid "logout_message"
 msgstr "Thank you for the time you spent on the website today."
 
-#: templates/msg_reset_password_email_not_sent.html:6
-#: templates/msg_reset_password_email_sent.html:6
-msgid "email_to_reset_password"
-msgstr "Email to reset password"
-
-#: templates/registration/login.html:35
+#: templates/registration/login.html:36
 msgid "forgot_password"
 msgstr "Forgot password?"
 
-#: templates/registration/login.html:58
+#: templates/registration/login.html:62
 msgid "not_have_account"
 msgstr "I do not have an account."
 
-#: templates/registration/login.html:60
+#: templates/registration/login.html:65
 msgid "request_an_account"
 msgstr "Request an account"
 
-#: templates/sign_up.html:33
+#: templates/registration/registration_complete.html:6
+#: templates/registration/registration_error.html:6
+msgid "confirmation_email"
+msgstr "Confirmation email"
+
+#: templates/registration/registration_form.html:33
 msgid "Create_personal_account"
 msgstr "Create your personal account"
 
-#: templates/sign_up.html:45
+#: templates/registration/registration_form.html:45
 msgid "email"
 msgstr "email"
 
-#: templates/sign_up.html:65
+#: templates/registration/registration_form.html:65
 msgid "Create_an_account_message"
 msgstr ""
 "When requesting the account, we will send you a confirmation email with the "
 "information referred to the request."
 
-#: templates/sign_up.html:72
+#: templates/registration/registration_form.html:72
 msgid "Create_an_account"
 msgstr "Create an account"

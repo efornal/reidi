@@ -76,8 +76,6 @@ def sanitize_application_create_params(request):
 def application_create(request):
     context={}
     params_s = sanitize_application_create_params(request)
-    logging.warning("------------------------------ params_s")
-    logging.warning(params_s)
     form = ApplicationForm(params_s)
     if form.is_valid():
         logging.warning("creating new application..")
