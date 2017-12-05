@@ -5,6 +5,36 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 
+class State(models.Model):
+    id = models.AutoField(
+        primary_key=True,
+        null=False)
+    name = models.CharField(
+        max_length=255,
+        null=False,
+        verbose_name=_('name'))
+    description = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name=_('description'))
+    is_default = models.BooleanField(
+        default=False,
+        verbose_name=_('is_default'))
+    icon_link = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name=_('icon_link'))
+
+    class Meta:
+        db_table = 'states'
+        verbose_name = _('State')
+        verbose_name_plural = _('States')
+
+    def __unicode__(self):
+        return self.name
+    
+
 class Domain(models.Model):
     id = models.AutoField(
         primary_key=True,
@@ -101,6 +131,9 @@ class Application(models.Model):
         Domain,
         null=False,
         verbose_name=_('domain'))
+    states = models.ManyToManyField(
+        State,
+        through='Change')
 
     class Meta:
         db_table = 'applications'
@@ -109,4 +142,35 @@ class Application(models.Model):
 
     def __unicode__(self):
         return self.resource
+
+    def last_state(self):
+        return self.states.last()
+        
     
+class Change(models.Model):
+    id = models.AutoField(
+        primary_key=True,
+        null=False)
+    application = models.ForeignKey(
+        Application,
+        on_delete=models.CASCADE,
+        verbose_name=_('application'))
+    state = models.ForeignKey(
+        State,
+        on_delete=models.CASCADE,
+        verbose_name=_('state'))
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_('created_at'))
+    description = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name=_('description'))
+
+    class Meta:
+        db_table = 'changes'
+        verbose_name = _('Change')
+        verbose_name_plural = _('Changes')
+
+    def __unicode__(self):
+        return self.state.name

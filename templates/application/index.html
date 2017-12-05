@@ -26,7 +26,9 @@
           <td>{{ application.date_from|date:'d-m-Y, H:i'|default:'' }} </td>
           <td>{{ application.date_until|date:'d-m-Y, H:i'|default:'' }} </td>
           <td>{{ application.area|default:'' }} </td>
-          <td><i class="glyphicon glyphicon glyphicon-ok"></i></td>
+          <td title="{{ application.last_state.name|default:'' }} ">
+            {{ application.last_state.icon_link|safe|default:'' }}
+          </td>
         </tr>
         {% endfor %}
         {% endif %}

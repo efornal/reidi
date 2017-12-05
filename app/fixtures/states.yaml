@@ -1,0 +1,16 @@
+- model: app.state
+  fields:
+    name: Solicitado
+    is_default: True
+    icon_link: "<i class='glyphicon glyphicon-ok-circle'></i>"
+- model: app.state
+  fields:
+    name: En curso
+    is_default: False
+    icon_link: "<i class='glyphicon glyphicon-refresh'></i>"
+- model: app.state
+  fields:
+    name: Aprobado
+    is_default: False
+    icon_link: "<i class='glyphicon glyphicon-ok-sign'></i>"
+
