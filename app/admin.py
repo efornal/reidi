@@ -7,6 +7,7 @@ from app.models import Area
 from app.models import Domain
 from app.models import State
 from app.models import Change
+from app.models import Person
 from app.models import DocumentType
 from django import forms
 
@@ -40,4 +41,5 @@ admin.site.register(Domain)
 admin.site.register(DocumentType)
 admin.site.register(State,StateAdmin)
 admin.site.register(Change, ChangeAdmin)
+admin.site.register(Person)
 admin.site.register(Application, ApplicationAdmin)

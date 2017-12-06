@@ -19,6 +19,7 @@ from .forms import DefinePasswordForm
 from .forms import ApplicationForm
 from .models import Domain
 from .models import Area
+from .models import Person
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -28,6 +29,9 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import EmailMessage
+from django.db import transaction
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 
 def register(request):
@@ -63,7 +67,7 @@ def send_activation_email(user, request):
     return False
 
 
-    
+@transaction.atomic    
 def complete(request):
     context = {}
 
@@ -73,9 +77,21 @@ def complete(request):
     
     form = SignupForm(request.POST)
     if form.is_valid():
-        user = form.save(commit=False)
-        user.is_active = False
-        user.save()
+        try:
+            sid = transaction.savepoint()
+            user = form.save(commit=False)
+            user.is_active = False
+            user.save()
+            person = Person(user=user)
+            person.save()
+        except Exception as e:
+            logging.error('ERROR Exception: %s', e)
+            transaction.savepoint_rollback( sid )
+            context.update({'form': form})
+            messages.warning(request, _('registration_not_found'))
+            return render(request, 'registration/registration_form.html', context)
+            
+        transaction.savepoint_commit( sid )
         context.update({'email': user.email})
         if send_activation_email(user, request):
             return render(request, 'registration/registration_complete.html', context)

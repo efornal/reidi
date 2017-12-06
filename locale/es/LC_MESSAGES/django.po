@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-05 13:17-0300\n"
+"POT-Creation-Date: 2017-12-06 08:50-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "dominio"
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:125 app/models.py:103
+#: app/forms.py:125 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "usuario"
 
@@ -148,6 +148,22 @@ msgstr "Cambio"
 #: app/models.py:173
 msgid "Changes"
 msgstr "Cambios"
+
+#: app/models.py:188
+msgid "telephone_number"
+msgstr "nro. de teléfono"
+
+#: app/models.py:192
+msgid "Person"
+msgstr "Persona"
+
+#: app/models.py:193
+msgid "People"
+msgstr "Personas"
+
+#: app/registration.py:89
+msgid "registration_not_found"
+msgstr "Se encontraron inconvenientes al crear la solicitud. Para resolver el inconveniente le pedimos verifique los datos ingresados, vuelva a intentar realizar la solicitud mas tarde, o se comunique directamente con Mesa de ayuda."
 
 #: reidi/settings.py:180 reidi/settings.tpl.py:169 templates/base.html:74
 #: templates/base.html:79
@@ -274,7 +290,7 @@ msgstr "Guardar"
 #: templates/registration/activation_email.html:11
 msgid "email_footer"
 msgstr ""
-"Ante cualquier duda, puede comunicarse con Mesa de ayudaSaludos cordiales,\n"
+"Ante cualquier duda, puede comunicarse con Mesa de ayuda. Saludos cordiales,\n"
 "El equipo de administración de sistemas"
 
 #: templates/auth/password_reset.html:33
