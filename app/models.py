@@ -174,3 +174,23 @@ class Change(models.Model):
 
     def __unicode__(self):
         return self.state.name
+
+    
+class Person(models.Model):
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name=_('user'))
+    telephone_number = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name=_('telephone_number'))
+    
+    class Meta:
+        db_table = 'people'
+        verbose_name = _('Person')
+        verbose_name_plural = _('People')
+
+    def __unicode__(self):
+        return self.user.username
