@@ -17,8 +17,12 @@ from .forms import SignupForm
 from .forms import ResetPasswordForm
 from .forms import DefinePasswordForm
 from .forms import ApplicationForm
+from .forms import EditUserForm
+from .forms import EditPersonForm
 from .models import Domain
+from .models import Person
 from .models import Area
+from .models import DocumentType
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -29,8 +33,8 @@ from django.core.mail import EmailMessage
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required
-
-
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 def logout_message(request):
     context={}
@@ -39,8 +43,23 @@ def logout_message(request):
 
 @login_required
 def edit(request):
-    context={}
+    user = request.user
+    person = Person.objects.get(user=user)
+    params={'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email,
+            'document_type': '0',}
+    form = EditUserForm(instance=user)
+    person_form = EditPersonForm(instance=person)
+    logging.error(person.document_type)
+    logging.error(person_form.fields.get('document_type'))
+    logging.error(dir(person_form.fields.get('document_type')))
+    
+    context={'form': form,
+             'person_form': person_form,
+             'doc_types': DocumentType.objects.all()}
     return render(request, 'auth/edit.html', context)
+
 
 @login_required
 def save(request):
@@ -48,17 +67,26 @@ def save(request):
     params = request.POST.copy()
     params.update({'username':request.user.username})
     logging.warning("Update user {}".format(params))
-    # form = FrontLdapPersonForm(params,instance=person)
     
-    # if form.is_valid():
-    #     form.instance.save()
-    #     messages.info(request, _('changes_saved'))
-    # else:
-    #     logging.warning ("Error to update ldap person {}".format(form.errors))
-    #     context.update({'form': form})
-    #     return render(request, 'edit.html', context)
+    user = request.user
+    person = Person.objects.get(user=user)
+    form = EditUserForm(request.POST,instance=user)
+    person_form = EditPersonForm(request.POST,instance=person)
+    if form.is_valid():
+        if person_form.is_valid():
+            person_form.instance.save(update_fields=['telephone_number',])
+            form.instance.save(update_fields=['first_name', 'last_name', 'email'])
+            messages.info(request, _('changes_saved'))
+        else:
+            logging.warning ("Error to update person {}".format(person_form.errors))
+    else:
+        logging.warning ("Error to update user {}".format(form.errors))
+        logging.warning ("Error to update user {}".format(form))
 
-    return redirect('auth_edit')
+    context.update({'form': form,
+                    'person_form': person_form})
+    return render(request, 'auth/edit.html', context)
+
 
 
 def send_reset_password_email(user, request):

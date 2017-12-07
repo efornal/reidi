@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 import logging
 from .models import Application
 from .models import Domain
+from .models import Person
+from .models import DocumentType
 from .models import Area
 from datetimewidget.widgets import DateTimeWidget
 import dns.resolver, dns.exception
@@ -93,6 +95,46 @@ class DefinePasswordForm(UserCreationForm):
         model = User
         fields = ('password1', 'password2')
 
+
+        
+class EditUserForm(forms.ModelForm):
+    first_name = forms.CharField(
+        max_length=150, 
+        required=True,
+        label=_('first_name'))
+    last_name = forms.CharField(
+        max_length=150, 
+        required=True,
+        label=_('last_name'))
+    email = forms.EmailField(
+        max_length=255,
+        help_text='Required',
+        validators=[validate_email_domain_restriction,
+                    validate_existence_email_domain])
+
+    class Meta:
+        model = User
+        fields = ('first_name','last_name','email',)
+        
+class EditPersonForm(forms.ModelForm):
+    document_type = forms.ModelChoiceField(
+        queryset=DocumentType.objects.all(),
+        to_field_name = "id",
+        required = True,
+        empty_label=_('empty_label_document_type'),
+        label=_('document_type'))
+    document_number = forms.CharField(
+        max_length=20, 
+        required=True,
+        label=_('document_number'))
+    telephone_number = forms.CharField(
+        max_length=255, 
+        required=False,
+        label=_('telephone_number'))
+
+    class Meta:
+        model = Person
+        fields = ('telephone_number','document_type', 'document_number')
 
 
 class ApplicationForm(forms.ModelForm):

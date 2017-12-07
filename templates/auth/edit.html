@@ -11,54 +11,55 @@
 
 
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="textinput">{{ _('Name') }}</label>
+        <label class="col-sm-2 control-label" for="id_name">{{ _('Name') }}</label>
         <div class="col-sm-4">
-          <input class="form-control" type="text" name="name"
-                 value="{{ form.name.value|default:'' }}" />
+          <input class="form-control" type="text" name="first_name" id="id_first_name"
+                 value="{{ form.first_name.value|default:'' }}" />
         </div>
-        <label class="col-sm-2 control-label" for="textinput">{{ _('Surname') }}</label>
+        <label class="col-sm-2 control-label" for="id_last_name">{{ _('Surname') }}</label>
         <div class="col-sm-4" >
-          <input class="form-control" type="text" name="surname"
-                 value="{{ form.surname.value|default:'' }}" />
+          <input class="form-control" type="text" name="last_name" id="id_last_name"
+                 value="{{ form.last_name.value|default:'' }}" />
         </div>
       </div>
-      
-      <!-- <div class="form-group"> -->
-      <!--   <label class="col-sm-2 control-label" for="textinput">{{ _('Surname') }}</label> -->
-      <!--   <div class="col-sm-4"> -->
-      <!--     <input class="form-control" type="text" name="surname" -->
-      <!--            value="{{ form.surname.value|default:'' }}" /> -->
-      <!-- </div> -->
 
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="textinput">{{ _('Document_type') }}</label>
+        <label class="col-sm-2 control-label" for="id_document_type">
+          {{ _('Document_type') }}
+        </label>
         <div class="col-sm-4">
           <select class="form-control" name="document_type" id="id_document_type">
-            {% for doc in documents %}
-            <option value="{{ doc.id }}" {% if doc.id == form.document %}selected{%endif%}>
-                                    {{ doc.name }}</option>
+            {% for choice in person_form.document_type.field.choices %}
+            <option value="{{choice.0}}"
+                    {% if choice.0 == person_form.document_type.value|add:0 %}selected=''{% endif %}>
+                    {{ choice.1}}
+                  </option>
             {% endfor %}
           </select>
         </div>
-        <label class="col-sm-2 control-label" for="textinput">{{ _('Document_number') }}</label>
+        
+        <label class="col-sm-2 control-label" for="id_document_number">{{ _('Document_number') }}</label>
         <div class="col-sm-4" >
-          <input class="form-control" type="text" name="document_number"
-                 value="{{ form.document_number.value|default:'' }}" />
+          <input class="form-control" type="text" name="document_number" id="id_document_number"
+                 value="{{ person_form.document_number.value|default:'' }}" />
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="textinput">{{ _('Email') }}</label>
+        <label class="col-sm-2 control-label" for="id_email">{{ _('Email') }}</label>
         <div class="col-sm-4">
-          <input class="form-control" type="text" name="email"
+          <input class="form-control" type="text" name="email" id="id_email"
                  value="{{ form.email.value|default:'' }}" />
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="textinput">{{ _('Telephone_number') }}</label>
+        <label class="col-sm-2 control-label" for="id_telephone_number">
+          {{ _('Telephone_number') }}
+        </label>
         <div class="col-sm-4">
-          <input class="form-control" type="text" name="telephone_number" 
-                 value="{{ form.telephone_number.value|default:'' }}" />
+          <input class="form-control" type="text"
+                 name="telephone_number" id="id_telephone_number" 
+                 value="{{ person_form.telephone_number.value|default:'' }}" />
           <p class="help-block">{{ _('Examples') }} <strong>4571110 int 23</strong>,
                 {{ _('or_alone') }}: <strong>int 23</strong></p>
         </div>

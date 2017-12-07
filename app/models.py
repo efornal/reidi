@@ -186,7 +186,17 @@ class Person(models.Model):
         null=True,
         blank=True,
         verbose_name=_('telephone_number'))
-    
+    document_type = models.ForeignKey(
+        DocumentType,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name=_('document_type'))
+    document_number = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_('document_number'))
     class Meta:
         db_table = 'people'
         verbose_name = _('Person')
