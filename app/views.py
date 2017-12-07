@@ -79,8 +79,8 @@ def sanitize_application_create_params(request):
 @login_required
 @transaction.atomic
 def application_create(request):
-    params_s = sanitize_application_create_params(request)
-    form = ApplicationForm(params_s)
+    params = sanitize_application_create_params(request)
+    form = ApplicationForm(params)
     state = State.objects.filter(is_default=True).first()
     context = {'form': form}
     if form.is_valid():
