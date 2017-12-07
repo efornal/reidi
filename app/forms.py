@@ -8,6 +8,7 @@ from .models import Domain
 from .models import Person
 from .models import DocumentType
 from .models import Area
+from .models import State
 from datetimewidget.widgets import DateTimeWidget
 import dns.resolver, dns.exception
 from django.utils.translation import ugettext as _
@@ -121,7 +122,7 @@ class EditPersonForm(forms.ModelForm):
         queryset=DocumentType.objects.all(),
         to_field_name = "id",
         required = True,
-        empty_label=_('empty_label_document_type'),
+        empty_label=_('empty_label_select_field'),
         label=_('document_type'))
     document_number = forms.CharField(
         max_length=20, 
@@ -152,11 +153,13 @@ class ApplicationForm(forms.ModelForm):
     requirements = forms.CharField(widget=forms.Textarea)
     domain = forms.ModelChoiceField(
         queryset=Domain.objects.all(),
+        empty_label=_('empty_label_select_field'),
         to_field_name = "id",
         required = True,
         label=_('domain'))
     area = forms.ModelChoiceField(
         queryset=Area.objects.all(),
+        empty_label=_('empty_label_select_field'),
         to_field_name = "id",
         required = True,
         label=_('area'))
@@ -172,3 +175,15 @@ class ApplicationForm(forms.ModelForm):
         fields = ('domain', 'area', 'objectives', 'requirements',
                   'resource','user','date_from', 'date_until')
 
+        
+class ChangeForm(forms.ModelForm):
+    application = forms.ModelChoiceField(
+        queryset=Application.objects.all(),
+        to_field_name = "id",
+        required = True,
+        label=_('application'))
+    state = forms.ModelChoiceField(
+        queryset=State.objects.all(),
+        to_field_name = "id",
+        required = True,
+        label=_('state'))

@@ -20,6 +20,8 @@ from .forms import ApplicationForm
 from .models import Domain
 from .models import Application
 from .models import Area
+from .models import State
+from .models import Change
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -29,7 +31,9 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.mail import EmailMessage
-
+from django.db import transaction
+from django.utils.translation import ugettext as _
+from django.contrib import messages
 
 def set_language(request, lang='es'):
     if 'lang' in request.GET:
@@ -42,9 +46,8 @@ def set_language(request, lang='es'):
 
 @login_required
 def application_new(request):
-    domains = Domain.objects.all()
-    areas = Area.objects.all()
-    context = {'domains': domains, 'areas': areas}
+    form = ApplicationForm()
+    context = {'form': form}
     return render(request, 'application/new.html', context)
 
 
@@ -72,18 +75,35 @@ def sanitize_application_create_params(request):
         logging.error('ERROR Exception',e)
     return params
 
+
 @login_required
+@transaction.atomic
 def application_create(request):
-    context={}
     params_s = sanitize_application_create_params(request)
     form = ApplicationForm(params_s)
+    state = State.objects.filter(is_default=True).first()
+    context = {'form': form}
     if form.is_valid():
-        logging.warning("creating new application..")
-        form.save()
+        sid = transaction.savepoint()
+        try:
+            logging.warning("creating new application..")
+            application = form.save()
+            change = Change(application=application, state=state)
+            change.save()
+            transaction.savepoint_commit( sid )
+            context.update({'message': _('create_application_message')})
+            return render(request, 'application/create.html', context)
+        except Exception as e:
+            logging.error('ERROR Exception: %s', e)
+            transaction.savepoint_rollback( sid )
+            messages.warning(request, _('application_creation_failure_message'))
+            #context.update({'message': _('application_creation_failure_message')})
+    
     else:
         logging.warning("ERROR creating new application..")
         logging.error(form.errors)
         
-    return render(request, 'application/create.html', context)
+    return render(request, 'application/new.html', context)        
+
 
     

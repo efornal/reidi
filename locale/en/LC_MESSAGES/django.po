@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 09:29-0300\n"
+"POT-Creation-Date: 2017-12-07 11:38-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,69 +22,77 @@ msgstr ""
 msgid "changes_saved"
 msgstr "The data was updated with success."
 
-#: app/forms.py:27 app/forms.py:51
+#: app/forms.py:28 app/forms.py:52
 msgid "email_domain_not_exist"
 msgstr ""
 "The existence of the email domain could not be verified. Please, verify the "
 "email entered. "
 
-#: app/forms.py:32
+#: app/forms.py:33
 msgid "email_domain_restriction"
 msgstr ""
 "Your email account does not belong to a valid institutional domain. You must "
 "use an institutional email account. "
 
-#: app/forms.py:70
+#: app/forms.py:71
 msgid "email_must_be_unique"
 msgstr "There is already a user with this email"
 
-#: app/forms.py:104
+#: app/forms.py:105
 msgid "first_name"
 msgstr "first name"
 
-#: app/forms.py:108
+#: app/forms.py:109
 msgid "last_name"
 msgstr "last name"
 
-#: app/forms.py:124
-msgid "empty_label_document_type"
+#: app/forms.py:125 app/forms.py:156 app/forms.py:162
+msgid "empty_label_select_field"
 msgstr "Select an option"
 
-#: app/forms.py:125 app/models.py:194
+#: app/forms.py:126 app/models.py:194
 msgid "document_type"
 msgstr "National type identifier"
 
-#: app/forms.py:129 app/models.py:199
+#: app/forms.py:130 app/models.py:199
 msgid "document_number"
 msgstr "identifier_number"
 
-#: app/forms.py:133 app/models.py:188
+#: app/forms.py:134 app/models.py:188
 msgid "telephone_number"
 msgstr "telephone number"
 
-#: app/forms.py:144 app/models.py:107 templates/application/new.html:22
+#: app/forms.py:145 app/models.py:107 templates/application/new.html:24
 msgid "resource"
 msgstr "resource"
 
-#: app/forms.py:148 app/models.py:123
+#: app/forms.py:149 app/models.py:123
 msgid "date_from"
 msgstr "date from"
 
-#: app/forms.py:151 app/models.py:125
+#: app/forms.py:152 app/models.py:125
 msgid "date_until"
 msgstr "date until"
 
-#: app/forms.py:157 app/models.py:133
+#: app/forms.py:159 app/models.py:133
 msgid "domain"
 msgstr "domain"
 
-#: app/forms.py:162 app/models.py:129
+#: app/forms.py:165 app/models.py:129
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:167 app/models.py:103 app/models.py:183
+#: app/forms.py:170 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "username"
+
+#: app/forms.py:184 app/models.py:157
+msgid "application"
+msgstr "application"
+
+#: app/forms.py:189 app/models.py:161
+msgid "state"
+msgstr "state"
 
 #: app/models.py:15 app/models.py:45 app/models.py:80
 msgid "name"
@@ -128,7 +136,7 @@ msgid "DocumentTypes"
 msgstr "Document types"
 
 #: app/models.py:88 templates/application/index.html:16
-#: templates/application/new.html:30
+#: templates/application/new.html:32
 msgid "Area"
 msgstr "Area"
 
@@ -160,14 +168,6 @@ msgstr "Application"
 msgid "Applications"
 msgstr "Applications"
 
-#: app/models.py:157
-msgid "application"
-msgstr "application"
-
-#: app/models.py:161
-msgid "state"
-msgstr "state"
-
 #: app/models.py:172
 msgid "Change"
 msgstr "Change"
@@ -191,6 +191,18 @@ msgstr ""
 "we ask you to verify the entered data, try again to make the request later, "
 "or contact the help desk directly."
 
+#: app/views.py:96
+msgid "create_application_message"
+msgstr ""
+"The request was made successfully. You can see the status of it in the "
+"request menu."
+
+#: app/views.py:101
+msgid "application_creation_failure_message"
+msgstr ""
+"The request could not be made. To solve the problem we ask you to verify the "
+"entered data, try again later, or contact the help desk directly."
+
 #: reidi/settings.py:180 reidi/settings.tpl.py:169 templates/base.html:74
 #: templates/base.html:79
 msgid "Spanish"
@@ -204,12 +216,6 @@ msgstr "English"
 #: templates/application/create.html:6
 msgid "create_application"
 msgstr "create application"
-
-#: templates/application/create.html:7
-msgid "create_application_message"
-msgstr ""
-"The request was made successfully. You can see the status of it in the "
-"request menu."
 
 #: templates/application/index.html:13
 msgid "Resource"
@@ -235,39 +241,39 @@ msgstr "No results found"
 msgid "application_request"
 msgstr "application request"
 
-#: templates/application/new.html:29
+#: templates/application/new.html:31
 msgid "Area_title"
 msgstr "Group or area in charge of the contents"
 
-#: templates/application/new.html:42
+#: templates/application/new.html:46
 msgid "Enable_from"
 msgstr "Enable from"
 
-#: templates/application/new.html:51
+#: templates/application/new.html:55
 msgid "until"
 msgstr "until"
 
-#: templates/application/new.html:66
+#: templates/application/new.html:70
 msgid "Objectives_title"
 msgstr "Objectives for which the resource is required"
 
-#: templates/application/new.html:67
+#: templates/application/new.html:71
 msgid "Objectives"
 msgstr "Objectives"
 
-#: templates/application/new.html:73
+#: templates/application/new.html:77
 msgid "Requirements_title"
 msgstr "Requirements of the resource: Images, texts, .."
 
-#: templates/application/new.html:74
+#: templates/application/new.html:78
 msgid "Requirements"
 msgstr "Requirements"
 
-#: templates/application/new.html:83 templates/auth/edit.html:87
+#: templates/application/new.html:87 templates/auth/edit.html:87
 msgid "Cancel"
 msgstr "Cancel"
 
-#: templates/application/new.html:85
+#: templates/application/new.html:89
 msgid "Send_application"
 msgstr "Send application"
 
