@@ -45,15 +45,8 @@ def logout_message(request):
 def edit(request):
     user = request.user
     person = Person.objects.get(user=user)
-    params={'first_name': user.first_name,
-            'last_name': user.last_name,
-            'email': user.email,
-            'document_type': '0',}
     form = EditUserForm(instance=user)
     person_form = EditPersonForm(instance=person)
-    logging.error(person.document_type)
-    logging.error(person_form.fields.get('document_type'))
-    logging.error(dir(person_form.fields.get('document_type')))
     
     context={'form': form,
              'person_form': person_form,
@@ -64,24 +57,21 @@ def edit(request):
 @login_required
 def save(request):
     context={}
-    params = request.POST.copy()
-    params.update({'username':request.user.username})
-    logging.warning("Update user {}".format(params))
-    
     user = request.user
     person = Person.objects.get(user=user)
     form = EditUserForm(request.POST,instance=user)
     person_form = EditPersonForm(request.POST,instance=person)
+    update_fields_person = ['telephone_number','document_type','document_number']
+    update_fields_user = ['first_name', 'last_name', 'email']
     if form.is_valid():
         if person_form.is_valid():
-            person_form.instance.save(update_fields=['telephone_number',])
-            form.instance.save(update_fields=['first_name', 'last_name', 'email'])
+            person_form.instance.save(update_fields=update_fields_person)
+            form.instance.save(update_fields=update_fields_user)
             messages.info(request, _('changes_saved'))
         else:
             logging.warning ("Error to update person {}".format(person_form.errors))
     else:
         logging.warning ("Error to update user {}".format(form.errors))
-        logging.warning ("Error to update user {}".format(form))
 
     context.update({'form': form,
                     'person_form': person_form})
