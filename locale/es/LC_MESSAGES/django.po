@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 08:50-0300\n"
+"POT-Creation-Date: 2017-12-07 09:29-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,43 +19,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/forms.py:25 app/forms.py:49
+#: app/auth.py:70
+msgid "changes_saved"
+msgstr "Los datos se actualizaron con exíto."
+
+#: app/forms.py:27 app/forms.py:51
 msgid "email_domain_not_exist"
 msgstr ""
 "No se ha podido verificar la existencia del dominio del email; Por favor, "
 "verifique el email ingresado. "
 
-#: app/forms.py:30
+#: app/forms.py:32
 msgid "email_domain_restriction"
 msgstr ""
 "Su cuenta de correo no pertenece a un dominio institucional válido. Debe "
 "usar una cuenta de correo institucional. "
 
-#: app/forms.py:68
+#: app/forms.py:70
 msgid "email_must_be_unique"
 msgstr "Ya existe un usuario con este email"
 
-#: app/forms.py:102 app/models.py:107 templates/application/new.html:22
+#: app/forms.py:104
+msgid "first_name"
+msgstr "nombre"
+
+#: app/forms.py:108
+msgid "last_name"
+msgstr "apellido"
+
+#: app/forms.py:124
+msgid "empty_label_document_type"
+msgstr "Selecione una opción"
+
+#: app/forms.py:125 app/models.py:194
+msgid "document_type"
+msgstr "tipo de documento"
+
+#: app/forms.py:129 app/models.py:199
+msgid "document_number"
+msgstr "nro. de documento"
+
+#: app/forms.py:133 app/models.py:188
+msgid "telephone_number"
+msgstr "nro. de teléfono"
+
+#: app/forms.py:144 app/models.py:107 templates/application/new.html:22
 msgid "resource"
 msgstr "recurso"
 
-#: app/forms.py:106 app/models.py:123
+#: app/forms.py:148 app/models.py:123
 msgid "date_from"
 msgstr "fecha desde"
 
-#: app/forms.py:109 app/models.py:125
+#: app/forms.py:151 app/models.py:125
 msgid "date_until"
 msgstr "fecha hasta"
 
-#: app/forms.py:115 app/models.py:133
+#: app/forms.py:157 app/models.py:133
 msgid "domain"
 msgstr "dominio"
 
-#: app/forms.py:120 app/models.py:129
+#: app/forms.py:162 app/models.py:129
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:125 app/models.py:103 app/models.py:183
+#: app/forms.py:167 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "usuario"
 
@@ -149,21 +177,21 @@ msgstr "Cambio"
 msgid "Changes"
 msgstr "Cambios"
 
-#: app/models.py:188
-msgid "telephone_number"
-msgstr "nro. de teléfono"
-
-#: app/models.py:192
+#: app/models.py:202
 msgid "Person"
 msgstr "Persona"
 
-#: app/models.py:193
+#: app/models.py:203
 msgid "People"
 msgstr "Personas"
 
-#: app/registration.py:89
+#: app/registration.py:91
 msgid "registration_not_found"
-msgstr "Se encontraron inconvenientes al crear la solicitud. Para resolver el inconveniente le pedimos verifique los datos ingresados, vuelva a intentar realizar la solicitud mas tarde, o se comunique directamente con Mesa de ayuda."
+msgstr ""
+"Se encontraron inconvenientes al crear la solicitud. Para resolver el "
+"inconveniente le pedimos verifique los datos ingresados, vuelva a intentar "
+"realizar la solicitud mas tarde, o se comunique directamente con Mesa de "
+"ayuda."
 
 #: reidi/settings.py:180 reidi/settings.tpl.py:169 templates/base.html:74
 #: templates/base.html:79
@@ -237,7 +265,7 @@ msgstr "Requerimientos del recurso: Imágenes, textos,.."
 msgid "Requirements"
 msgstr "Requerimientos"
 
-#: templates/application/new.html:83 templates/auth/edit.html:69
+#: templates/application/new.html:83 templates/auth/edit.html:87
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -245,43 +273,43 @@ msgstr "Cancelar"
 msgid "Send_application"
 msgstr "Enviar solicitud"
 
-#: templates/auth/edit.html:10
+#: templates/auth/edit.html:27
 msgid "data_of_the_person"
 msgstr "Datos personales"
 
-#: templates/auth/edit.html:14
+#: templates/auth/edit.html:31
 msgid "Name"
 msgstr "Nombre"
 
-#: templates/auth/edit.html:19 templates/auth/edit.html:27
+#: templates/auth/edit.html:36
 msgid "Surname"
 msgstr "Apellido"
 
-#: templates/auth/edit.html:34
+#: templates/auth/edit.html:45
 msgid "Document_type"
 msgstr "Tipo de documento"
 
-#: templates/auth/edit.html:43
+#: templates/auth/edit.html:58
 msgid "Document_number"
 msgstr "Nro. de documento"
 
-#: templates/auth/edit.html:50
+#: templates/auth/edit.html:65
 msgid "Email"
 msgstr "Email"
 
-#: templates/auth/edit.html:58
+#: templates/auth/edit.html:74
 msgid "Telephone_number"
 msgstr "Nro. de teléfono"
 
-#: templates/auth/edit.html:62
+#: templates/auth/edit.html:80
 msgid "Examples"
 msgstr "Ejemplos"
 
-#: templates/auth/edit.html:63
+#: templates/auth/edit.html:81
 msgid "or_alone"
 msgstr "o sólo"
 
-#: templates/auth/edit.html:71
+#: templates/auth/edit.html:89
 msgid "Save"
 msgstr "Guardar"
 
@@ -290,7 +318,8 @@ msgstr "Guardar"
 #: templates/registration/activation_email.html:11
 msgid "email_footer"
 msgstr ""
-"Ante cualquier duda, puede comunicarse con Mesa de ayuda. Saludos cordiales,\n"
+"Ante cualquier duda, puede comunicarse con Mesa de ayuda. Saludos "
+"cordiales,\n"
 "El equipo de administración de sistemas"
 
 #: templates/auth/password_reset.html:33

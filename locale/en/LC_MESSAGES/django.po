@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 08:50-0300\n"
+"POT-Creation-Date: 2017-12-07 09:29-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app/forms.py:25 app/forms.py:49
+#: app/auth.py:70
+msgid "changes_saved"
+msgstr "The data was updated with success."
+
+#: app/forms.py:27 app/forms.py:51
 msgid "email_domain_not_exist"
 msgstr ""
 "The existence of the email domain could not be verified. Please, verify the "
 "email entered. "
 
-#: app/forms.py:30
+#: app/forms.py:32
 msgid "email_domain_restriction"
 msgstr ""
 "Your email account does not belong to a valid institutional domain. You must "
 "use an institutional email account. "
 
-#: app/forms.py:68
+#: app/forms.py:70
 msgid "email_must_be_unique"
 msgstr "There is already a user with this email"
 
-#: app/forms.py:102 app/models.py:107 templates/application/new.html:22
+#: app/forms.py:104
+msgid "first_name"
+msgstr "first name"
+
+#: app/forms.py:108
+msgid "last_name"
+msgstr "last name"
+
+#: app/forms.py:124
+msgid "empty_label_document_type"
+msgstr "Select an option"
+
+#: app/forms.py:125 app/models.py:194
+msgid "document_type"
+msgstr "National type identifier"
+
+#: app/forms.py:129 app/models.py:199
+msgid "document_number"
+msgstr "identifier_number"
+
+#: app/forms.py:133 app/models.py:188
+msgid "telephone_number"
+msgstr "telephone number"
+
+#: app/forms.py:144 app/models.py:107 templates/application/new.html:22
 msgid "resource"
 msgstr "resource"
 
-#: app/forms.py:106 app/models.py:123
+#: app/forms.py:148 app/models.py:123
 msgid "date_from"
 msgstr "date from"
 
-#: app/forms.py:109 app/models.py:125
+#: app/forms.py:151 app/models.py:125
 msgid "date_until"
 msgstr "date until"
 
-#: app/forms.py:115 app/models.py:133
+#: app/forms.py:157 app/models.py:133
 msgid "domain"
 msgstr "domain"
 
-#: app/forms.py:120 app/models.py:129
+#: app/forms.py:162 app/models.py:129
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:125 app/models.py:103 app/models.py:183
+#: app/forms.py:167 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "username"
 
@@ -148,21 +176,20 @@ msgstr "Change"
 msgid "Changes"
 msgstr "Changes"
 
-#: app/models.py:188
-msgid "telephone_number"
-msgstr "telephone number"
-
-#: app/models.py:192
+#: app/models.py:202
 msgid "Person"
 msgstr "Person"
 
-#: app/models.py:193
+#: app/models.py:203
 msgid "People"
 msgstr "People"
 
-#: app/registration.py:89
+#: app/registration.py:91
 msgid "registration_not_found"
-msgstr "Problems were encountered when creating the request. To solve the problem, we ask you to verify the entered data, try again to make the request later, or contact the help desk directly."
+msgstr ""
+"Problems were encountered when creating the request. To solve the problem, "
+"we ask you to verify the entered data, try again to make the request later, "
+"or contact the help desk directly."
 
 #: reidi/settings.py:180 reidi/settings.tpl.py:169 templates/base.html:74
 #: templates/base.html:79
@@ -236,7 +263,7 @@ msgstr "Requirements of the resource: Images, texts, .."
 msgid "Requirements"
 msgstr "Requirements"
 
-#: templates/application/new.html:83 templates/auth/edit.html:69
+#: templates/application/new.html:83 templates/auth/edit.html:87
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -244,43 +271,43 @@ msgstr "Cancel"
 msgid "Send_application"
 msgstr "Send application"
 
-#: templates/auth/edit.html:10
+#: templates/auth/edit.html:27
 msgid "data_of_the_person"
 msgstr "Data of the person"
 
-#: templates/auth/edit.html:14
+#: templates/auth/edit.html:31
 msgid "Name"
 msgstr "Name"
 
-#: templates/auth/edit.html:19 templates/auth/edit.html:27
+#: templates/auth/edit.html:36
 msgid "Surname"
 msgstr "Surname"
 
-#: templates/auth/edit.html:34
+#: templates/auth/edit.html:45
 msgid "Document_type"
 msgstr "National type identifier"
 
-#: templates/auth/edit.html:43
+#: templates/auth/edit.html:58
 msgid "Document_number"
 msgstr "Number"
 
-#: templates/auth/edit.html:50
+#: templates/auth/edit.html:65
 msgid "Email"
 msgstr "Email"
 
-#: templates/auth/edit.html:58
+#: templates/auth/edit.html:74
 msgid "Telephone_number"
 msgstr "Telephone number"
 
-#: templates/auth/edit.html:62
+#: templates/auth/edit.html:80
 msgid "Examples"
 msgstr "Examples"
 
-#: templates/auth/edit.html:63
+#: templates/auth/edit.html:81
 msgid "or_alone"
 msgstr "or alone"
 
-#: templates/auth/edit.html:71
+#: templates/auth/edit.html:89
 msgid "Save"
 msgstr "Save"
 
