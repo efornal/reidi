@@ -71,8 +71,7 @@ ROOT_URLCONF = 'reidi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'ldap_people/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': {{ app_debug }},
@@ -218,8 +217,8 @@ LDAP_DN = "{{ ldap_dn }}"
 LDAP_PEOPLE = "{{ ldap_people }}"
 LDAP_GROUP  = "{{ ldap_group }}"
 
-#LDAP_USERNAME = "{{ ldap_username }}"
-#LDAP_PASSWORD = "{{ ldap_password }}"
+#LDAP_USERNAME = ""
+#LDAP_PASSWORD = ""
 #
 # =================================/
 
