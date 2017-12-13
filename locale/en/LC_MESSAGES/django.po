@@ -357,7 +357,7 @@ msgstr "confirm password"
 #: templates/auth/password_reset_confirm.html:51
 msgid "confirm_reset_password_message"
 msgstr ""
-"Enter your email address and we will send you a link to reset your password."
+"Enter your new password and confirm it to reset it"
 
 #: templates/auth/password_reset_confirm.html:58
 msgid "_confirm_reset_password"

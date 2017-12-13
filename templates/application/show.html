@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+    
+<div class="well bs-component">
+  <form class="form-horizontal"  method="post">
+
+    <fieldset>
+      <legend>{{ _('application_data') }}</legend>
+      
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="id_domain">{{ _('Resource') }}</label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <div class="input-group-addon ">{{ application.domain }} /</div>
+            <input  class="form-control" id="id_domain"
+                   value="{{ application.resource }}"
+                   placeholder="{{ _('Resource') }}" type="text">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="id_area">{{ _('Area') }}</label>
+        <div class="col-sm-4">
+          <input class="form-control" id="id_area"
+                 value="{{ application.area }}"
+                 placeholder="{{ _('Area') }}" type="text">
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="id_domain">{{ _('State') }}</label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <input  class="form-control" id="id_domain"
+                   value="{{ application.last_state.name|default:'' }}"
+                    placeholder="{{ _('Resource') }}" type="text">
+            <div class="input-group-addon ">{{ application.last_state.icon_link|safe|default:'' }}</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="id_date_from">{{ _('Enable_from') }}</label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+            <input class="form-control" type="text" name="date_from"
+                   id="id_date_from_read_only"
+                   value="{{ form.date_from.value|default:'' }}"/>
+          </div>
+        </div>
+        <label class="col-sm-2 control-label" for="id_date_until">{{ _('until') }}</label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+            <input class="form-control" type="text" name="date_until"
+                   id="id_date_until_read_only"
+                 value="{{ form.date_until.value|default:'' }}"/>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $("#id_date_from").datetimepicker({autoclose: true,language: 'es', format: 'dd-mm-yyyy hh:ii'});
+        $("#id_date_until").datetimepicker({autoclose: true,language: 'es', format: 'dd-mm-yyyy hh:ii'});
+      </script>
+
+      <div class="form-group" title="{{ _('Objectives_title') }}">
+        <label class="col-sm-2 control-label" for="id_objectives">{{ _('Objectives') }}</label>
+        <div class="col-sm-10">
+          <textarea class="form-control " name="objectives" id="id_objectives" rows="5">{{ form.objectives.value|default:'' }}</textarea>
+        </div>
+      </div>
+
+      <div class="form-group" title="{{ _('Requirements_title') }}">
+        <label class="col-sm-2 control-label" for="id_requirements">{{ _('Requirements') }}</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" name="requirements" id="id_requirements" rows="5">{{ form.requirements.value|default:'' }}</textarea>
+        </div>
+      </div>
+
+      <br>
+      <div class="form-group pull-right">
+        <div class="col-xs-12">
+          <a class="btn btn-primary" href="{% url 'application_list' %}" role="button">{{ _('Back') }}</a>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+{% endblock %}
+

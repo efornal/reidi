@@ -362,8 +362,8 @@ msgstr "confirmar contraseña"
 #: templates/auth/password_reset_confirm.html:51
 msgid "confirm_reset_password_message"
 msgstr ""
-"Ingrese su dirección de correo electrónico y le enviaremos un enlace para "
-"restablecer su contraseña."
+"Ingrese su nueva contraseña y confirmación de la misma para "
+"restablecerla."
 
 #: templates/auth/password_reset_confirm.html:58
 msgid "_confirm_reset_password"

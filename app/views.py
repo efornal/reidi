@@ -59,6 +59,14 @@ def application_list(request):
 
 
 @login_required
+def application_show(request, pk):
+    application = Application.objects.get(pk=pk)
+    form = ApplicationForm(instance=application)
+    context = {'application': application, 'form': form}
+    return render(request, 'application/show.html', context)
+
+
+@login_required
 def index(request):
     context={}
     return render(request, 'index.html', context)

@@ -21,7 +21,7 @@
         {% if applications %}
         {% for application in applications %}
         <tr>
-          <td>{{ application.domain|default:'' }}</td>
+          <td><a href="{% url 'application_show' pk=application.pk %}" >{{ application.domain|default:'' }}<a/></td>
           <td>{{ application.resource|default:'' }} </td>
           <td>{{ application.date_from|date:'d-m-Y, H:i'|default:'' }} </td>
           <td>{{ application.date_until|date:'d-m-Y, H:i'|default:'' }} </td>
