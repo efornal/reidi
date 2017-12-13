@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 11:38-0300\n"
+"POT-Creation-Date: 2017-12-13 11:47-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/auth.py:70
+#: app/auth.py:83
 msgid "changes_saved"
 msgstr "Los datos se actualizaron con exíto."
 
@@ -111,7 +111,7 @@ msgstr "usar por defecto"
 msgid "icon_link"
 msgstr "link de icono"
 
-#: app/models.py:31
+#: app/models.py:31 templates/application/show.html:34
 msgid "State"
 msgstr "Estado"
 
@@ -137,7 +137,8 @@ msgid "DocumentTypes"
 msgstr "Tipos de documentos"
 
 #: app/models.py:88 templates/application/index.html:16
-#: templates/application/new.html:32
+#: templates/application/new.html:32 templates/application/show.html:25
+#: templates/application/show.html:29
 msgid "Area"
 msgstr "Area"
 
@@ -193,26 +194,24 @@ msgstr ""
 "realizar la solicitud mas tarde, o se comunique directamente con Mesa de "
 "ayuda."
 
-#: app/views.py:96
+#: app/views.py:102
 msgid "create_application_message"
 msgstr ""
 "La solicitud fué realizada con exito. Podrá ver el estado de la misma en el "
 "menú de solicitudes."
 
-#: app/views.py:101
+#: app/views.py:107
 msgid "application_creation_failure_message"
 msgstr ""
 "La solicitud no pudo realizarse. Para resolver el inconveniente le pedimos "
 "verifique los datos ingresados, vuelva a intentar mas tarde, o se comunique "
 "directamente con Mesa de ayuda."
 
-#: reidi/settings.py:180 reidi/settings.tpl.py:169 templates/base.html:74
-#: templates/base.html:79
+#: reidi/settings.py:180 templates/base.html:74 templates/base.html:79
 msgid "Spanish"
 msgstr "Español"
 
-#: reidi/settings.py:181 reidi/settings.tpl.py:170 templates/base.html:75
-#: templates/base.html:81
+#: reidi/settings.py:181 templates/base.html:75 templates/base.html:81
 msgid "English"
 msgstr "Inglés"
 
@@ -220,7 +219,8 @@ msgstr "Inglés"
 msgid "create_application"
 msgstr "Crear solicitud"
 
-#: templates/application/index.html:13
+#: templates/application/index.html:13 templates/application/show.html:13
+#: templates/application/show.html:19 templates/application/show.html:39
 msgid "Resource"
 msgstr "Recurso"
 
@@ -248,27 +248,27 @@ msgstr "Solicitud de recurso"
 msgid "Area_title"
 msgstr "Grupo o area encargada de los contenidos"
 
-#: templates/application/new.html:46
+#: templates/application/new.html:46 templates/application/show.html:47
 msgid "Enable_from"
 msgstr "Habilitado desde"
 
-#: templates/application/new.html:55
+#: templates/application/new.html:55 templates/application/show.html:57
 msgid "until"
 msgstr "hasta"
 
-#: templates/application/new.html:70
+#: templates/application/new.html:70 templates/application/show.html:73
 msgid "Objectives_title"
 msgstr "Objetivos por el cual se requiere el recurso"
 
-#: templates/application/new.html:71
+#: templates/application/new.html:71 templates/application/show.html:74
 msgid "Objectives"
 msgstr "Objetivos"
 
-#: templates/application/new.html:77
+#: templates/application/new.html:77 templates/application/show.html:80
 msgid "Requirements_title"
 msgstr "Requerimientos del recurso: Imágenes, textos,.."
 
-#: templates/application/new.html:78
+#: templates/application/new.html:78 templates/application/show.html:81
 msgid "Requirements"
 msgstr "Requerimientos"
 
@@ -279,6 +279,14 @@ msgstr "Cancelar"
 #: templates/application/new.html:89
 msgid "Send_application"
 msgstr "Enviar solicitud"
+
+#: templates/application/show.html:10
+msgid "application_data"
+msgstr "Datos de la solicitud"
+
+#: templates/application/show.html:90
+msgid "Back"
+msgstr "Volver"
 
 #: templates/auth/edit.html:27
 msgid "data_of_the_person"
@@ -362,8 +370,7 @@ msgstr "confirmar contraseña"
 #: templates/auth/password_reset_confirm.html:51
 msgid "confirm_reset_password_message"
 msgstr ""
-"Ingrese su nueva contraseña y confirmación de la misma para "
-"restablecerla."
+"Ingrese su nueva contraseña y confirmación de la misma para restablecerla."
 
 #: templates/auth/password_reset_confirm.html:58
 msgid "_confirm_reset_password"
