@@ -61,6 +61,14 @@ def application_list(request):
 @login_required
 def index(request):
     context={}
+    # logging.error(dir(request.user.ldap_user))
+    logging.error(request.user.ldap_user)
+    # logging.error(request.user.ldap_user.attrs)
+
+    from django_auth_ldap.backend import LDAPBackend
+    ldap_backend = LDAPBackend()
+    ldap_backend.populate_user(request.user.username)
+    
     return render(request, 'index.html', context)
 
 def sanitize_application_create_params(request):

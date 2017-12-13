@@ -43,8 +43,21 @@ def logout_message(request):
 
 @login_required
 def edit(request):
-    user = request.user
-    person = Person.objects.get(user=user)
+    try:
+        user = request.user
+        person = Person.objects.get(user=user)
+    except(Person.DoesNotExist):
+        try:
+            person = Person(user=user)
+            person.save()
+            logging.warning('Created {} person corresponding to the user {}'
+                            .format(person,user))
+        except Exception as e:
+            logging.error('Exception: creating the person to the user. %s', e)
+    except Exception as e:
+        logging.error('Exception: looking for the person and corresponding user. %s', e)
+        return redirect('index')
+        
     form = EditUserForm(instance=user)
     person_form = EditPersonForm(instance=person)
     

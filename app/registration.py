@@ -107,7 +107,6 @@ def complete(request):
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
-        
         user = User.objects.get(pk=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
@@ -116,7 +115,6 @@ def activate(request, uidb64, token):
         logging.warning('Activating {} user with token {}'.format(user, token))
         user.is_active = True
         user.save()
-        login(request, user)
         return render(request, 'registration/activation_complete.html')
     else:
         logging.error('Error activating {} user with token {}'.format(user, token))
