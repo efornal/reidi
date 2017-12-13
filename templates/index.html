@@ -3,18 +3,10 @@
 
 {% block content %}
 
-{% if show_welcome_message %}
-<div class="jumbotron">
-  <h3>{{ _('welcome_message_title') | safe }}</h3>
-  <p>{{ _('welcome_message') | safe}}</p>
-</div>
-{% endif %}
 
 <div class="jumbotron">
-  <h1 class="display-3">Bienvenido!</h1>
-  <p>Este sitio le permitirá realizar la solicitud de subdominio...</p>
-  <p>Para realizar una solicitud, ingrese al siguiente
-    <a href="{% url 'application_new' %}">enlace..</a></p>
+  <h1 class="display-3">{{ _('welcome_message_title') | safe }}</h1>
+  <p>{{ _('welcome_message') | safe}}</p>
 </div>
 
 {% endblock %}

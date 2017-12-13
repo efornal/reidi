@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 11:47-0300\n"
+"POT-Creation-Date: 2017-12-13 12:08-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,11 +207,11 @@ msgstr ""
 "verifique los datos ingresados, vuelva a intentar mas tarde, o se comunique "
 "directamente con Mesa de ayuda."
 
-#: reidi/settings.py:180 templates/base.html:74 templates/base.html:79
+#: reidi/settings.py:180 templates/base.html:65 templates/base.html:70
 msgid "Spanish"
 msgstr "Español"
 
-#: reidi/settings.py:181 templates/base.html:75 templates/base.html:81
+#: reidi/settings.py:181 templates/base.html:66 templates/base.html:72
 msgid "English"
 msgstr "Inglés"
 
@@ -385,36 +385,40 @@ msgstr "Email para restablecer contraseña"
 msgid "password_has_not_been_reset"
 msgstr "La contraseña no pudo ser restablecida."
 
-#: templates/base.html:41 templates/base.html:44 templates/base.html:67
+#: templates/base.html:41 templates/base.html:44 templates/base.html:58
 msgid "Go_home"
 msgstr "Inicio"
 
-#: templates/base.html:61 templates/base.html:63
-msgid "search"
-msgstr "buscar"
-
-#: templates/base.html:68
+#: templates/base.html:59
 msgid "Home"
 msgstr "Inicio"
 
-#: templates/base.html:72
+#: templates/base.html:63
 msgid "language"
 msgstr "idioma"
 
-#: templates/base.html:88 templates/registration/login.html:43
+#: templates/base.html:78 templates/registration/login.html:43
 #: templates/registration/registration_form.html:38
 msgid "username"
 msgstr "usuario"
 
-#: templates/base.html:99
+#: templates/base.html:84
+msgid "New_request"
+msgstr "Nueva solicitud"
+
+#: templates/base.html:86
+msgid "See_requests"
+msgstr "Ver solicitudes"
+
+#: templates/base.html:89
 msgid "Edit_account"
 msgstr "Editar cuenta"
 
-#: templates/base.html:102 templates/base.html:106
+#: templates/base.html:92 templates/base.html:96
 msgid "Close_session"
 msgstr "Cerrar sesión"
 
-#: templates/base.html:112 templates/registration/login.html:33
+#: templates/base.html:102 templates/registration/login.html:33
 #: templates/registration/login.html:55
 msgid "Init_session"
 msgstr "Iniciar sesión"
@@ -426,10 +430,9 @@ msgstr "Bienvenido!"
 #: templates/index.html:9
 msgid "welcome_message"
 msgstr ""
-"Este sistema le permitirá gestionar su cuenta de usuario de ldap y realizar "
-"búsquedas de otros usuarios. <br> Para poder editar los datos de tu cuenta, "
-"debes registrarte utilizando los datos de login de LDAP que utilizas "
-"normalmente."
+"Este sitio le permitirá realizar solicitudes de recursos para un dominio "
+"determinado. Para realizar una solicitud, ingrese al menú de opciones de su "
+"cuenta y seleccione la opción correspondiente."
 
 #: templates/msg_logout.html:6
 msgid "logout_message_title"
@@ -473,3 +476,6 @@ msgstr ""
 #: templates/registration/registration_form.html:72
 msgid "Create_an_account"
 msgstr "Crea cuenta personal"
+
+#~ msgid "search"
+#~ msgstr "buscar"
