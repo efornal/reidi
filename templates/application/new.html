@@ -50,7 +50,7 @@
               <span class="glyphicon glyphicon-calendar" id="id_date_from_icon" aria-hidden="true"></span>
             </span>
             <input class="form-control" type="text" name="date_from" id="id_date_from"
-                   value="{{ form.date_from.value|default:'' }}"/>
+                   value="{{ form.date_from.value|default:date_from }}"/>
           </div>
         </div>
         <label class="col-sm-2 control-label" for="id_date_until">{{ _('until') }}</label>
@@ -60,12 +60,12 @@
               <span class="glyphicon glyphicon-calendar" id="id_date_until_icon" aria-hidden="true"></span>
             </span>
             <input class="form-control" type="text" name="date_until" id="id_date_until"
-                   value="{{ form.date_until.value|default:'' }}"/>
+                   value="{{ form.date_until.value|default:date_until }}"/>
           </div>
         </div>
       </div>
       <script type="text/javascript">
-        $("#id_date_from").datetimepicker({autoclose: true,language: 'es', format: 'dd-mm-yyyy hh:ii'});
+        $("#id_date_from").datetimepicker({autoclose: true,language: 'es', format: 'dd-mm-yyyy hh:ii' });
         $("#id_date_until").datetimepicker({autoclose: true,language: 'es', format: 'dd-mm-yyyy hh:ii'});
         $("#id_date_from_icon" ).click(function() { $("#id_date_from").focus(); });
         $("#id_date_until_icon" ).click(function() { $("#id_date_until").focus(); });

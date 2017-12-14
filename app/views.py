@@ -11,6 +11,7 @@ from django.core.mail import send_mail
 from django.core.mail import BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime
+from datetime import timedelta
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import SignupForm
@@ -46,8 +47,15 @@ def set_language(request, lang='es'):
 
 @login_required
 def application_new(request):
+    increase_days = 365
+    if hasattr(settings, 'INCREASE_DAYS_FOR_DATE_UNTIL') and \
+       settings.INCREASE_DAYS_FOR_DATE_UNTIL > 0:
+        increase_days = settings.INCREASE_DAYS_FOR_DATE_UNTIL
+
     form = ApplicationForm()
-    context = {'form': form}
+    date_from = datetime.now().strftime('%d-%m-%Y %H:%M')
+    date_until = (datetime.now()+ timedelta(days=increase_days)).strftime('%d-%m-%Y %H:%M') 
+    context = {'form': form, 'date_from': date_from, 'date_until': date_until}
     return render(request, 'application/new.html', context)
 
 
