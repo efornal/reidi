@@ -8,7 +8,7 @@
     <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
     <link rel='stylesheet' type='text/css' href="{% static 'css/jquery-ui/smoothness/jquery-ui.css' %}" />
     <link href="{% static 'css/datetimepicker.css' %}" type="text/css" media="all" rel="stylesheet" />
-   <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bootstrap-datetimepicker.es.js' %}"></script>
 
     {% endblock %}
@@ -53,7 +53,7 @@
           <ul class="nav navbar-nav">
             <li class="active"> <span class="sr-only"></span></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-left">
             <li>
               <a href="{% url 'index' %}" title="{{ _('Go_home') }}">
                 <i class="glyphicon glyphicon-home"></i> {{ _('Home') }}</a>
@@ -72,7 +72,26 @@
                 <li><a href="{% url 'set_language' lang='en' %}">{{ _('English') }}</a></li>
               </ul>
             </li>
+          </ul>
+               
+          <ul class="nav navbar-nav navbar-right">
             {% if user.username %}
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"
+                 title="{{ _('username') }}">
+                <i class="glyphicon glyphicon-list"></i>
+                Solicitudes <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li><a href="{% url 'application_new' %}"
+                       title="">{{ _('New_request') }}</a></li>
+                <li><a href="{% url 'application_list' %}"
+                       title="">{{ _('See_requests') }}</a></li>
+              </ul>
+            </li>
+            <li style="margin-left:10px;"></li>
+
+
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"
                  title="{{ _('username') }}">
@@ -80,11 +99,6 @@
                 {{ user.username }} <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="{% url 'application_new' %}"
-                       title="">{{ _('New_request') }}</a></li>
-                <li><a href="{% url 'application_list' %}"
-                       title="">{{ _('See_requests') }}</a></li>
-                <li class="divider"></li>
                 <li><a href="{% url 'auth_edit' %}"
                        title="{{ _('Edit_account') }}">{{ _('Edit_account') }}</a></li>
                 <li class="divider"></li>
