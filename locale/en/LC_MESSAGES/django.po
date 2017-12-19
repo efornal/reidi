@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-18 08:13-0300\n"
+"POT-Creation-Date: 2017-12-19 10:06-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,79 +18,92 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app/auth.py:83
+#: app/auth.py:82
 msgid "changes_saved"
 msgstr "The data was updated with success."
 
-#: app/forms.py:31
+#: app/forms.py:32
 msgid "email_must_be_unique"
 msgstr "There is already a user with this email"
 
-#: app/forms.py:65
+#: app/forms.py:42
+msgid "duplicate_username"
+msgstr ""
+"A user with this name already exists. Try a different name. If you have already completed the application and you have not received the confirmation email, we ask you to contact the Help Desk directly."
+
+#: app/forms.py:80
 msgid "first_name"
 msgstr "first name"
 
-#: app/forms.py:69
+#: app/forms.py:84
 msgid "last_name"
 msgstr "last name"
 
-#: app/forms.py:85 app/forms.py:116 app/forms.py:122
+#: app/forms.py:100 app/forms.py:141
 msgid "empty_label_select_field"
 msgstr "Select an option"
 
-#: app/forms.py:86 app/models.py:194
+#: app/forms.py:101 app/models.py:194
 msgid "document_type"
 msgstr "National type identifier"
 
-#: app/forms.py:90 app/models.py:199
+#: app/forms.py:105 app/models.py:199
 msgid "document_number"
 msgstr "identifier_number"
 
-#: app/forms.py:94 app/models.py:188
+#: app/forms.py:109 app/models.py:188
 msgid "telephone_number"
 msgstr "telephone number"
 
-#: app/forms.py:105 app/models.py:107 templates/application/new.html:21
+#: app/forms.py:120 app/models.py:107 templates/application/new.html:21
 msgid "resource"
 msgstr "resource"
 
-#: app/forms.py:109 app/models.py:123
-msgid "date_from"
-msgstr "date from"
-
-#: app/forms.py:112 app/models.py:125
-msgid "date_until"
-msgstr "date until"
-
-#: app/forms.py:119 app/models.py:133
-msgid "domain"
-msgstr "domain"
-
-#: app/forms.py:125 app/models.py:129
+#: app/forms.py:124 app/models.py:129
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:130 app/models.py:103 app/models.py:183
+#: app/forms.py:127 app/models.py:123
+msgid "date_from"
+msgstr "date from"
+
+#: app/forms.py:130 app/models.py:125
+msgid "date_until"
+msgstr "date until"
+
+#: app/forms.py:133 app/models.py:111
+msgid "objectives"
+msgstr "objectives"
+
+#: app/forms.py:137 app/models.py:115
+msgid "requirements"
+msgstr "requirements"
+
+#: app/forms.py:144 app/models.py:133
+msgid "domain"
+msgstr "domain"
+
+#: app/forms.py:149 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "username"
 
-#: app/forms.py:139
+#: app/forms.py:157
 msgid "date_from_previous_date_until"
 msgstr "The date from must be before the date until."
 
-#: app/forms.py:154 app/models.py:157
+#: app/forms.py:170 app/models.py:157
 msgid "application"
 msgstr "application"
 
-#: app/forms.py:159 app/models.py:161
+#: app/forms.py:175 app/models.py:161
 msgid "state"
 msgstr "state"
 
-#: app/models.py:15 app/models.py:45 app/models.py:80
+#: app/models.py:15 app/models.py:45
 msgid "name"
 msgstr "name"
 
-#: app/models.py:19 app/models.py:84 app/models.py:168
+#: app/models.py:19 app/models.py:168
 msgid "description"
 msgstr "description"
 
@@ -127,24 +140,6 @@ msgstr "Document type"
 msgid "DocumentTypes"
 msgstr "Document types"
 
-#: app/models.py:88 templates/application/index.html:16
-#: templates/application/new.html:30 templates/application/show.html:25
-#: templates/application/show.html:29
-msgid "Area"
-msgstr "Area"
-
-#: app/models.py:89
-msgid "Areas"
-msgstr "Areas"
-
-#: app/models.py:111
-msgid "objectives"
-msgstr "objectives"
-
-#: app/models.py:115
-msgid "requirements"
-msgstr "requirements"
-
 #: app/models.py:118 app/models.py:164
 msgid "created_at"
 msgstr "created at"
@@ -177,32 +172,32 @@ msgstr "Person"
 msgid "People"
 msgstr "People"
 
-#: app/registration.py:91
+#: app/registration.py:90
 msgid "registration_not_found"
 msgstr ""
 "Problems were encountered when creating the request. To solve the problem, "
 "we ask you to verify the entered data, try again to make the request later, "
 "or contact the help desk directly."
 
-#: app/validators.py:12 app/validators.py:36
+#: app/validators.py:18 app/validators.py:42
 msgid "email_domain_not_exist"
 msgstr ""
 "The existence of the email domain could not be verified. Please, verify the "
 "email entered. "
 
-#: app/validators.py:17
+#: app/validators.py:23
 msgid "email_domain_restriction"
 msgstr ""
 "Your email account does not belong to a valid institutional domain. You must "
 "use an institutional email account. "
 
-#: app/views.py:110
+#: app/views.py:123
 msgid "create_application_message"
 msgstr ""
 "The request was made successfully. You can see the status of it in the "
 "request menu."
 
-#: app/views.py:115
+#: app/views.py:128
 msgid "application_creation_failure_message"
 msgstr ""
 "The request could not be made. To solve the problem we ask you to verify the "
@@ -233,6 +228,11 @@ msgstr "Fate from"
 msgid "Date_until"
 msgstr "Date until"
 
+#: templates/application/index.html:16 templates/application/new.html:30
+#: templates/application/show.html:25 templates/application/show.html:29
+msgid "Area"
+msgstr "Area"
+
 #: templates/application/index.html:17
 msgid "Status"
 msgstr "Status"
@@ -249,35 +249,35 @@ msgstr "application request"
 msgid "Area_title"
 msgstr "Group or area in charge of the contents"
 
-#: templates/application/new.html:40 templates/application/show.html:47
+#: templates/application/new.html:38 templates/application/show.html:47
 msgid "Enable_from"
 msgstr "Enable from"
 
-#: templates/application/new.html:50 templates/application/show.html:57
+#: templates/application/new.html:48 templates/application/show.html:57
 msgid "until"
 msgstr "until"
 
-#: templates/application/new.html:70 templates/application/show.html:73
+#: templates/application/new.html:68 templates/application/show.html:73
 msgid "Objectives_title"
 msgstr "Objectives for which the resource is required"
 
-#: templates/application/new.html:71 templates/application/show.html:74
+#: templates/application/new.html:69 templates/application/show.html:74
 msgid "Objectives"
 msgstr "Objectives"
 
-#: templates/application/new.html:77 templates/application/show.html:80
+#: templates/application/new.html:75 templates/application/show.html:80
 msgid "Requirements_title"
 msgstr "Requirements of the resource: Images, texts, .."
 
-#: templates/application/new.html:78 templates/application/show.html:81
+#: templates/application/new.html:76 templates/application/show.html:81
 msgid "Requirements"
 msgstr "Requirements"
 
-#: templates/application/new.html:87 templates/auth/edit.html:87
+#: templates/application/new.html:85 templates/auth/edit.html:87
 msgid "Cancel"
 msgstr "Cancel"
 
-#: templates/application/new.html:89
+#: templates/application/new.html:87
 msgid "Send_application"
 msgstr "Send application"
 
@@ -475,6 +475,9 @@ msgstr ""
 #: templates/registration/registration_form.html:72
 msgid "Create_an_account"
 msgstr "Create an account"
+
+#~ msgid "Areas"
+#~ msgstr "Areas"
 
 #~ msgid "search"
 #~ msgstr "search"

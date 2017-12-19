@@ -9,7 +9,6 @@ from .models import Person
 from .models import DocumentType
 from .models import State
 from datetimewidget.widgets import DateTimeWidget
-import dns.resolver, dns.exception
 from django.utils.translation import ugettext as _
 from django.conf import settings
 from datetime import datetime
@@ -22,13 +21,30 @@ class SignupForm(UserCreationForm):
                              validators=[validate_email_domain_restriction,
                                          validate_existence_email_domain])
 
-
+    
     def clean_email(self):
         email = self.cleaned_data.get('email')
         username = self.cleaned_data.get('username')
-        if email and User.objects.filter(email=email).exclude(username=username).exists():
+        if email and User.objects.filter(email=email) \
+                                 .filter(is_active=True) \
+                                 .exclude(username=username) \
+                                 .exists():
             raise forms.ValidationError(_('email_must_be_unique'))
         return email
+
+    
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        try:
+            User._default_manager.get(username=username)
+            # if user exists, raise an error
+            raise forms.ValidationError( 
+                _('duplicate_username'),  # custom error
+                code='username',   #set the error message key
+            )
+        except User.DoesNotExist:
+            return username # continue registration process
+
 
     
     class Meta:

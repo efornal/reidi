@@ -1,4 +1,10 @@
-    
+import logging
+from django import forms
+from django.utils.translation import ugettext as _
+from django.conf import settings
+import dns.resolver, dns.exception
+
+
 def validate_email_domain_restriction(value):
     logging.info('Checking email domain in preset domains..')
     valid_domains = []
