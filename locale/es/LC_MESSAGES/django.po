@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 12:08-0300\n"
+"POT-Creation-Date: 2017-12-18 08:13-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,75 +23,67 @@ msgstr ""
 msgid "changes_saved"
 msgstr "Los datos se actualizaron con exíto."
 
-#: app/forms.py:28 app/forms.py:52
-msgid "email_domain_not_exist"
-msgstr ""
-"No se ha podido verificar la existencia del dominio del email; Por favor, "
-"verifique el email ingresado. "
-
-#: app/forms.py:33
-msgid "email_domain_restriction"
-msgstr ""
-"Su cuenta de correo no pertenece a un dominio institucional válido. Debe "
-"usar una cuenta de correo institucional. "
-
-#: app/forms.py:71
+#: app/forms.py:31
 msgid "email_must_be_unique"
 msgstr "Ya existe un usuario con este email"
 
-#: app/forms.py:105
+#: app/forms.py:65
 msgid "first_name"
 msgstr "nombre"
 
-#: app/forms.py:109
+#: app/forms.py:69
 msgid "last_name"
 msgstr "apellido"
 
-#: app/forms.py:125 app/forms.py:156 app/forms.py:162
+#: app/forms.py:85 app/forms.py:116 app/forms.py:122
 msgid "empty_label_select_field"
 msgstr "Selecione una opción"
 
-#: app/forms.py:126 app/models.py:194
+#: app/forms.py:86 app/models.py:194
 msgid "document_type"
 msgstr "tipo de documento"
 
-#: app/forms.py:130 app/models.py:199
+#: app/forms.py:90 app/models.py:199
 msgid "document_number"
 msgstr "nro. de documento"
 
-#: app/forms.py:134 app/models.py:188
+#: app/forms.py:94 app/models.py:188
 msgid "telephone_number"
 msgstr "nro. de teléfono"
 
-#: app/forms.py:145 app/models.py:107 templates/application/new.html:24
+#: app/forms.py:105 app/models.py:107 templates/application/new.html:21
 msgid "resource"
 msgstr "recurso"
 
-#: app/forms.py:149 app/models.py:123
+#: app/forms.py:109 app/models.py:123
 msgid "date_from"
 msgstr "fecha desde"
 
-#: app/forms.py:152 app/models.py:125
+#: app/forms.py:112 app/models.py:125
 msgid "date_until"
 msgstr "fecha hasta"
 
-#: app/forms.py:159 app/models.py:133
+#: app/forms.py:119 app/models.py:133
 msgid "domain"
 msgstr "dominio"
 
-#: app/forms.py:165 app/models.py:129
+#: app/forms.py:125 app/models.py:129
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:170 app/models.py:103 app/models.py:183
+#: app/forms.py:130 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "usuario"
 
-#: app/forms.py:184 app/models.py:157
+#: app/forms.py:139
+msgid "date_from_previous_date_until"
+msgstr "La fecha desde debe ser anterior a la fecha hasta."
+
+#: app/forms.py:154 app/models.py:157
 msgid "application"
 msgstr "solicitud"
 
-#: app/forms.py:189 app/models.py:161
+#: app/forms.py:159 app/models.py:161
 msgid "state"
 msgstr "estado"
 
@@ -137,7 +129,7 @@ msgid "DocumentTypes"
 msgstr "Tipos de documentos"
 
 #: app/models.py:88 templates/application/index.html:16
-#: templates/application/new.html:32 templates/application/show.html:25
+#: templates/application/new.html:30 templates/application/show.html:25
 #: templates/application/show.html:29
 msgid "Area"
 msgstr "Area"
@@ -194,24 +186,36 @@ msgstr ""
 "realizar la solicitud mas tarde, o se comunique directamente con Mesa de "
 "ayuda."
 
-#: app/views.py:102
+#: app/validators.py:12 app/validators.py:36
+msgid "email_domain_not_exist"
+msgstr ""
+"No se ha podido verificar la existencia del dominio del email; Por favor, "
+"verifique el email ingresado. "
+
+#: app/validators.py:17
+msgid "email_domain_restriction"
+msgstr ""
+"Su cuenta de correo no pertenece a un dominio institucional válido. Debe "
+"usar una cuenta de correo institucional. "
+
+#: app/views.py:110
 msgid "create_application_message"
 msgstr ""
 "La solicitud fué realizada con exito. Podrá ver el estado de la misma en el "
 "menú de solicitudes."
 
-#: app/views.py:107
+#: app/views.py:115
 msgid "application_creation_failure_message"
 msgstr ""
 "La solicitud no pudo realizarse. Para resolver el inconveniente le pedimos "
 "verifique los datos ingresados, vuelva a intentar mas tarde, o se comunique "
 "directamente con Mesa de ayuda."
 
-#: reidi/settings.py:180 templates/base.html:65 templates/base.html:70
+#: reidi/settings.py:188 templates/base.html:65 templates/base.html:70
 msgid "Spanish"
 msgstr "Español"
 
-#: reidi/settings.py:181 templates/base.html:66 templates/base.html:72
+#: reidi/settings.py:189 templates/base.html:66 templates/base.html:72
 msgid "English"
 msgstr "Inglés"
 
@@ -244,15 +248,15 @@ msgstr "No se han encontrado resultados"
 msgid "application_request"
 msgstr "Solicitud de recurso"
 
-#: templates/application/new.html:31
+#: templates/application/new.html:29
 msgid "Area_title"
 msgstr "Grupo o area encargada de los contenidos"
 
-#: templates/application/new.html:46 templates/application/show.html:47
+#: templates/application/new.html:40 templates/application/show.html:47
 msgid "Enable_from"
 msgstr "Habilitado desde"
 
-#: templates/application/new.html:55 templates/application/show.html:57
+#: templates/application/new.html:50 templates/application/show.html:57
 msgid "until"
 msgstr "hasta"
 
@@ -397,28 +401,29 @@ msgstr "Inicio"
 msgid "language"
 msgstr "idioma"
 
-#: templates/base.html:78 templates/registration/login.html:43
+#: templates/base.html:81 templates/base.html:97
+#: templates/registration/login.html:43
 #: templates/registration/registration_form.html:38
 msgid "username"
 msgstr "usuario"
 
-#: templates/base.html:84
+#: templates/base.html:87
 msgid "New_request"
 msgstr "Nueva solicitud"
 
-#: templates/base.html:86
+#: templates/base.html:89
 msgid "See_requests"
 msgstr "Ver solicitudes"
 
-#: templates/base.html:89
+#: templates/base.html:103
 msgid "Edit_account"
 msgstr "Editar cuenta"
 
-#: templates/base.html:92 templates/base.html:96
+#: templates/base.html:106 templates/base.html:110
 msgid "Close_session"
 msgstr "Cerrar sesión"
 
-#: templates/base.html:102 templates/registration/login.html:33
+#: templates/base.html:116 templates/registration/login.html:33
 #: templates/registration/login.html:55
 msgid "Init_session"
 msgstr "Iniciar sesión"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 12:08-0300\n"
+"POT-Creation-Date: 2017-12-18 08:13-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,75 +22,67 @@ msgstr ""
 msgid "changes_saved"
 msgstr "The data was updated with success."
 
-#: app/forms.py:28 app/forms.py:52
-msgid "email_domain_not_exist"
-msgstr ""
-"The existence of the email domain could not be verified. Please, verify the "
-"email entered. "
-
-#: app/forms.py:33
-msgid "email_domain_restriction"
-msgstr ""
-"Your email account does not belong to a valid institutional domain. You must "
-"use an institutional email account. "
-
-#: app/forms.py:71
+#: app/forms.py:31
 msgid "email_must_be_unique"
 msgstr "There is already a user with this email"
 
-#: app/forms.py:105
+#: app/forms.py:65
 msgid "first_name"
 msgstr "first name"
 
-#: app/forms.py:109
+#: app/forms.py:69
 msgid "last_name"
 msgstr "last name"
 
-#: app/forms.py:125 app/forms.py:156 app/forms.py:162
+#: app/forms.py:85 app/forms.py:116 app/forms.py:122
 msgid "empty_label_select_field"
 msgstr "Select an option"
 
-#: app/forms.py:126 app/models.py:194
+#: app/forms.py:86 app/models.py:194
 msgid "document_type"
 msgstr "National type identifier"
 
-#: app/forms.py:130 app/models.py:199
+#: app/forms.py:90 app/models.py:199
 msgid "document_number"
 msgstr "identifier_number"
 
-#: app/forms.py:134 app/models.py:188
+#: app/forms.py:94 app/models.py:188
 msgid "telephone_number"
 msgstr "telephone number"
 
-#: app/forms.py:145 app/models.py:107 templates/application/new.html:24
+#: app/forms.py:105 app/models.py:107 templates/application/new.html:21
 msgid "resource"
 msgstr "resource"
 
-#: app/forms.py:149 app/models.py:123
+#: app/forms.py:109 app/models.py:123
 msgid "date_from"
 msgstr "date from"
 
-#: app/forms.py:152 app/models.py:125
+#: app/forms.py:112 app/models.py:125
 msgid "date_until"
 msgstr "date until"
 
-#: app/forms.py:159 app/models.py:133
+#: app/forms.py:119 app/models.py:133
 msgid "domain"
 msgstr "domain"
 
-#: app/forms.py:165 app/models.py:129
+#: app/forms.py:125 app/models.py:129
 msgid "area"
 msgstr "area"
 
-#: app/forms.py:170 app/models.py:103 app/models.py:183
+#: app/forms.py:130 app/models.py:103 app/models.py:183
 msgid "user"
 msgstr "username"
 
-#: app/forms.py:184 app/models.py:157
+#: app/forms.py:139
+msgid "date_from_previous_date_until"
+msgstr "The date from must be before the date until."
+
+#: app/forms.py:154 app/models.py:157
 msgid "application"
 msgstr "application"
 
-#: app/forms.py:189 app/models.py:161
+#: app/forms.py:159 app/models.py:161
 msgid "state"
 msgstr "state"
 
@@ -136,7 +128,7 @@ msgid "DocumentTypes"
 msgstr "Document types"
 
 #: app/models.py:88 templates/application/index.html:16
-#: templates/application/new.html:32 templates/application/show.html:25
+#: templates/application/new.html:30 templates/application/show.html:25
 #: templates/application/show.html:29
 msgid "Area"
 msgstr "Area"
@@ -192,23 +184,35 @@ msgstr ""
 "we ask you to verify the entered data, try again to make the request later, "
 "or contact the help desk directly."
 
-#: app/views.py:102
+#: app/validators.py:12 app/validators.py:36
+msgid "email_domain_not_exist"
+msgstr ""
+"The existence of the email domain could not be verified. Please, verify the "
+"email entered. "
+
+#: app/validators.py:17
+msgid "email_domain_restriction"
+msgstr ""
+"Your email account does not belong to a valid institutional domain. You must "
+"use an institutional email account. "
+
+#: app/views.py:110
 msgid "create_application_message"
 msgstr ""
 "The request was made successfully. You can see the status of it in the "
 "request menu."
 
-#: app/views.py:107
+#: app/views.py:115
 msgid "application_creation_failure_message"
 msgstr ""
 "The request could not be made. To solve the problem we ask you to verify the "
 "entered data, try again later, or contact the help desk directly."
 
-#: reidi/settings.py:180 templates/base.html:65 templates/base.html:70
+#: reidi/settings.py:188 templates/base.html:65 templates/base.html:70
 msgid "Spanish"
 msgstr "Spanish"
 
-#: reidi/settings.py:181 templates/base.html:66 templates/base.html:72
+#: reidi/settings.py:189 templates/base.html:66 templates/base.html:72
 msgid "English"
 msgstr "English"
 
@@ -241,15 +245,15 @@ msgstr "No results found"
 msgid "application_request"
 msgstr "application request"
 
-#: templates/application/new.html:31
+#: templates/application/new.html:29
 msgid "Area_title"
 msgstr "Group or area in charge of the contents"
 
-#: templates/application/new.html:46 templates/application/show.html:47
+#: templates/application/new.html:40 templates/application/show.html:47
 msgid "Enable_from"
 msgstr "Enable from"
 
-#: templates/application/new.html:55 templates/application/show.html:57
+#: templates/application/new.html:50 templates/application/show.html:57
 msgid "until"
 msgstr "until"
 
@@ -391,28 +395,29 @@ msgstr "Home"
 msgid "language"
 msgstr "language"
 
-#: templates/base.html:78 templates/registration/login.html:43
+#: templates/base.html:81 templates/base.html:97
+#: templates/registration/login.html:43
 #: templates/registration/registration_form.html:38
 msgid "username"
 msgstr "username"
 
-#: templates/base.html:84
+#: templates/base.html:87
 msgid "New_request"
 msgstr "New request"
 
-#: templates/base.html:86
+#: templates/base.html:89
 msgid "See_requests"
 msgstr "See requests"
 
-#: templates/base.html:89
+#: templates/base.html:103
 msgid "Edit_account"
 msgstr "Edit account"
 
-#: templates/base.html:92 templates/base.html:96
+#: templates/base.html:106 templates/base.html:110
 msgid "Close_session"
 msgstr "Close session"
 
-#: templates/base.html:102 templates/registration/login.html:33
+#: templates/base.html:116 templates/registration/login.html:33
 #: templates/registration/login.html:55
 msgid "Init_session"
 msgstr "Init session"

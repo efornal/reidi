@@ -36,6 +36,18 @@ from django.db import transaction
 from django.utils.translation import ugettext as _
 from django.contrib import messages
 
+
+def default_date_from():
+    return datetime.now().strftime('%d-%m-%Y %H:%M')
+
+def default_date_until():
+    increase_days = 365
+    if hasattr(settings, 'INCREASE_DAYS_FOR_DATE_UNTIL') and \
+       settings.INCREASE_DAYS_FOR_DATE_UNTIL > 0:
+        increase_days = settings.INCREASE_DAYS_FOR_DATE_UNTIL
+    return (datetime.now()+ timedelta(days=increase_days)).strftime('%d-%m-%Y %H:%M') 
+
+
 def set_language(request, lang='es'):
     if 'lang' in request.GET:
         lang = request.GET['lang']
@@ -47,15 +59,11 @@ def set_language(request, lang='es'):
 
 @login_required
 def application_new(request):
-    increase_days = 365
-    if hasattr(settings, 'INCREASE_DAYS_FOR_DATE_UNTIL') and \
-       settings.INCREASE_DAYS_FOR_DATE_UNTIL > 0:
-        increase_days = settings.INCREASE_DAYS_FOR_DATE_UNTIL
-
+    logging.warning( default_date_from)
     form = ApplicationForm()
-    date_from = datetime.now().strftime('%d-%m-%Y %H:%M')
-    date_until = (datetime.now()+ timedelta(days=increase_days)).strftime('%d-%m-%Y %H:%M') 
-    context = {'form': form, 'date_from': date_from, 'date_until': date_until}
+    context = {'form': form,
+               'date_from': default_date_from(),
+               'date_until': default_date_until()}
     return render(request, 'application/new.html', context)
 
 
@@ -84,9 +92,13 @@ def sanitize_application_create_params(request):
     try:
         params['user'] = request.user.pk
         if 'date_from' in params:
-            params['date_from'] = unicode( datetime.strptime(params['date_from'],'%d-%m-%Y %H:%M'))
+            params.update(
+                {'date_from':
+                 unicode( datetime.strptime(params['date_from'],'%d-%m-%Y %H:%M'))})
         if 'date_until' in params:
-            params['date_until'] = unicode(datetime.strptime(params['date_until'], '%d-%m-%Y %H:%M'))
+            params.update(
+                {'date_until':
+                 unicode(datetime.strptime(params['date_until'], '%d-%m-%Y %H:%M'))})
     except Exception, e:
         logging.error('ERROR Exception',e)
     return params
@@ -98,8 +110,11 @@ def application_create(request):
     params = sanitize_application_create_params(request)
     form = ApplicationForm(params)
     state = State.objects.filter(is_default=True).first()
-    context = {'form': form}
+    context = { 'date_from': default_date_from(),
+                'date_until': default_date_until()}
+
     if form.is_valid():
+        context = {'form': form}
         sid = transaction.savepoint()
         try:
             logging.warning("creating new application..")
@@ -113,9 +128,9 @@ def application_create(request):
             logging.error('ERROR Exception: %s', e)
             transaction.savepoint_rollback( sid )
             messages.warning(request, _('application_creation_failure_message'))
-            #context.update({'message': _('application_creation_failure_message')})
     
     else:
+        context.update({'form': form})
         logging.warning("ERROR creating new application..")
         logging.error(form.errors)
         

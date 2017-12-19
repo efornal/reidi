@@ -14,48 +14,8 @@ import dns.resolver, dns.exception
 from django.utils.translation import ugettext as _
 from django.conf import settings
 from datetime import datetime
-    
-def validate_email_domain_restriction(value):
-    logging.info('Checking email domain in preset domains..')
-    valid_domains = []
-    try:
-        email_domain = value.split('@')[1]
-        valid_domains = settings.VALIDATE_EMAIL_DOMAINS
-    except AttributeError, e:
-        logging.warning("Email domain verification is omitted. %s", e)
-    except Exception, e:
-        logging.warning("Email domain verification failed. %s", e)
-        raise forms.ValidationError(_('email_domain_not_exist'))
-    
-    if email_domain not in valid_domains:
-        logging.warning("Invalid email domain {}, valid are {}"
-                        .format(email_domain, valid_domains))
-        raise forms.ValidationError(_('email_domain_restriction'))
-    return value
-
-
-def validate_existence_email_domain(value):
-    logging.info('Checking the existence of the email domain..')
-    validate = False
-    try:
-        validate = settings.VALIDATE_EXISTENCE_EMAIL_DOMAIN
-    except AttributeError, e:
-        logging.warning("Email domain existence is omitted. %s", e)
-        return value
-    
-    try:
-        if validate:
-            email_domain = value.split('@')[1]
-            results = dns.resolver.query(email_domain, 'MX')
-    except dns.exception.DNSException, e:
-        logging.warning('Domain does not exist. %s', e)
-        raise forms.ValidationError(_('email_domain_not_exist'))
-    except Exception, e:
-        logging.error('ERROR Exception: %s',e)
-
-    return value
-
-
+from validators import validate_email_domain_restriction
+from validators import validate_existence_email_domain
 
 
 class SignupForm(UserCreationForm):
@@ -143,14 +103,20 @@ class ApplicationForm(forms.ModelForm):
         max_length=255, 
         required=True,
         label=_('resource'))
-    objectives = forms.CharField(widget=forms.Textarea)
     date_from = forms.DateTimeField(
         required=True,
         label=_('date_from'))
     date_until = forms.DateTimeField(
         required=True,
         label=_('date_until'))
-    requirements = forms.CharField(widget=forms.Textarea)
+    objectives = forms.CharField(
+        required=False,
+        label=_('objectives'),
+        widget=forms.Textarea)
+    requirements = forms.CharField(
+        required=False,
+        label=_('requirements'),
+        widget=forms.Textarea)
     domain = forms.ModelChoiceField(
         queryset=Domain.objects.all(),
         empty_label=_('empty_label_select_field'),
@@ -170,6 +136,13 @@ class ApplicationForm(forms.ModelForm):
         label=_('user'))
     
 
+    def clean(self):
+        cleaned_data = super(ApplicationForm, self).clean()
+        date_from = cleaned_data.get('date_from')
+        date_until = cleaned_data.get('date_until')
+        if date_from > date_until:
+            self.add_error('date_from', _('date_from_previous_date_until'))
+            
     class Meta:
         model = Application
         fields = ('domain', 'area', 'objectives', 'requirements',
