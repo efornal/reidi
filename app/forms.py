@@ -7,7 +7,6 @@ from .models import Application
 from .models import Domain
 from .models import Person
 from .models import DocumentType
-from .models import Area
 from .models import State
 from datetimewidget.widgets import DateTimeWidget
 import dns.resolver, dns.exception
@@ -103,6 +102,10 @@ class ApplicationForm(forms.ModelForm):
         max_length=255, 
         required=True,
         label=_('resource'))
+    area = forms.CharField(
+        max_length=255, 
+        required=True,
+        label=_('area'))
     date_from = forms.DateTimeField(
         required=True,
         label=_('date_from'))
@@ -123,12 +126,6 @@ class ApplicationForm(forms.ModelForm):
         to_field_name = "id",
         required = True,
         label=_('domain'))
-    area = forms.ModelChoiceField(
-        queryset=Area.objects.all(),
-        empty_label=_('empty_label_select_field'),
-        to_field_name = "id",
-        required = True,
-        label=_('area'))
     user = forms.ModelChoiceField(
         queryset=User.objects.all(),
         to_field_name = "id",
@@ -145,8 +142,8 @@ class ApplicationForm(forms.ModelForm):
             
     class Meta:
         model = Application
-        fields = ('domain', 'area', 'objectives', 'requirements',
-                  'resource','user','date_from', 'date_until')
+        fields = ('domain', 'objectives', 'requirements',
+                  'resource','area','user','date_from', 'date_until')
 
         
 class ChangeForm(forms.ModelForm):

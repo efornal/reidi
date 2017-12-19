@@ -29,10 +29,8 @@
       <div class="form-group" title="{{ _('Area_title') }}">
         <label class="col-sm-2 control-label" for="id_area">{{ _('Area') }}</label>
         <div class="col-sm-4">
-          <select class="form-control" name="area" id="id_area">
-            {% for choice in form.area.field.choices %}
-            <option value="{{choice.0}}" {% if choice.0 == form.area.value|add:0 %}selected=''{% endif %}>{{ choice.1 }}</option>{% endfor %}
-          </select>
+          <input class="form-control" type="text" name="area" id="id_area"
+                 value="{{ form.area.value|default:'' }}"/>
         </div>
       </div>
 

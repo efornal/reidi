@@ -20,7 +20,6 @@ from .forms import DefinePasswordForm
 from .forms import ApplicationForm
 from .models import Domain
 from .models import Application
-from .models import Area
 from .models import State
 from .models import Change
 from django.contrib.sites.shortcuts import get_current_site
@@ -59,7 +58,6 @@ def set_language(request, lang='es'):
 
 @login_required
 def application_new(request):
-    logging.warning( default_date_from)
     form = ApplicationForm()
     context = {'form': form,
                'date_from': default_date_from(),

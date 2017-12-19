@@ -70,26 +70,26 @@ class DocumentType(models.Model):
         return self.name
 
     
-class Area(models.Model):
-    id = models.AutoField(
-        primary_key=True,
-        null=False)
-    name = models.CharField(
-        max_length=255,
-        null=False,
-        verbose_name=_('name'))
-    description = models.TextField(
-        null=True,
-        blank=True,
-        verbose_name=_('description'))
+# class Area(models.Model):
+#     id = models.AutoField(
+#         primary_key=True,
+#         null=False)
+#     name = models.CharField(
+#         max_length=255,
+#         null=False,
+#         verbose_name=_('name'))
+#     description = models.TextField(
+#         null=True,
+#         blank=True,
+#         verbose_name=_('description'))
 
-    class Meta:
-        db_table = 'areas'
-        verbose_name = _('Area')
-        verbose_name_plural = _('Areas')
+#     class Meta:
+#         db_table = 'areas'
+#         verbose_name = _('Area')
+#         verbose_name_plural = _('Areas')
 
-    def __unicode__(self):
-        return self.name
+#     def __unicode__(self):
+#         return self.name
 
     
 class Application(models.Model):
@@ -123,8 +123,8 @@ class Application(models.Model):
         verbose_name=_('date_from'))
     date_until = models.DateTimeField(
         verbose_name=_('date_until'))
-    area = models.ForeignKey(
-        Area,
+    area = models.CharField(
+        max_length=255,
         null=False,
         verbose_name=_('area'))
     domain = models.ForeignKey(

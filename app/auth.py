@@ -21,7 +21,6 @@ from .forms import EditUserForm
 from .forms import EditPersonForm
 from .models import Domain
 from .models import Person
-from .models import Area
 from .models import DocumentType
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text

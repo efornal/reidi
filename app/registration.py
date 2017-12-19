@@ -18,7 +18,6 @@ from .forms import ResetPasswordForm
 from .forms import DefinePasswordForm
 from .forms import ApplicationForm
 from .models import Domain
-from .models import Area
 from .models import Person
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
