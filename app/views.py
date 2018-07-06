@@ -34,7 +34,7 @@ from django.core.mail import EmailMessage
 from django.db import transaction
 from django.utils.translation import ugettext as _
 from django.contrib import messages
-
+from django.contrib.auth.decorators import permission_required
 
 def default_date_from():
     return datetime.now().strftime('%d-%m-%Y %H:%M')
@@ -57,6 +57,7 @@ def set_language(request, lang='es'):
 
 
 @login_required
+@permission_required('app.add_application')
 def application_new(request):
     form = ApplicationForm()
     context = {'form': form,
@@ -103,6 +104,7 @@ def sanitize_application_create_params(request):
 
 
 @login_required
+@permission_required('app.add_application')
 @transaction.atomic
 def application_create(request):
     params = sanitize_application_create_params(request)

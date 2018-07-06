@@ -11,23 +11,31 @@ from app.models import DocumentType
 from django import forms
 
 
+    
+class ChangesInline(admin.TabularInline):
+   model = Application.states.through
+   extra = 1
+
+
 class ApplicationAdmin(admin.ModelAdmin):
     search_fields = ['resoruce','domain','user','area']
     ordering = ('resource',)
-    list_display = ('resource','domain','user')
+    list_display = ('domain','resource','user')
     list_filter = ('domain','user')
+
+    inlines = [ChangesInline,]
 
     
 class StateAdmin(admin.ModelAdmin):
     search_fields = ['name']
     ordering = ('name',)
     list_display = ('name','is_default')
-
     
 class ChangeAdmin(admin.ModelAdmin):
     search_fields = ['state__name']
     ordering = ('state__name',)
     list_display = ('application', 'state','created_at')
+    list_filter = ('application','state')
     
     
 admin.site.register(Domain)
