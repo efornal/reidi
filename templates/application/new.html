@@ -62,13 +62,17 @@
         $("#id_date_from_icon" ).click(function() { $("#id_date_from").focus(); });
         $("#id_date_until_icon" ).click(function() { $("#id_date_until").focus(); });
         $("#id_domain" ).change(function() {$("#id_complete_resource").text($("#id_domain option:selected").text()+'/'+$("#id_resource").val());});
-        $("#id_resource").keypress(function() {if ($("#id_domain option:selected").val()>0){$("#id_complete_resource").text($("#id_domain option:selected").text()+'/'+$("#id_resource").val());}});
+        $("#id_resource").keyup(function() {
+          if ($("#id_domain option:selected").val()>0){
+            $("#id_complete_resource").text($("#id_domain option:selected").text()+'/'+$("#id_resource").val());
+          }
+        });
       </script>
 
       <div class="form-group" title="{{ _('Objectives_title') }}">
         <label class="col-sm-2 control-label" for="id_objectives">{{ _('Objectives') }}</label>
         <div class="col-sm-10">
-          <textarea class="form-control " name="objectives" id="id_objectives" rows="5">{{ form.objectives.value|default:'' }}</textarea>
+          <textarea class="form-control"  name="objectives" id="id_objectives" rows="5">{{ form.objectives.value|default:'' }}</textarea>
         </div>
       </div>
 
